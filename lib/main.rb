@@ -38,24 +38,29 @@ module Mastermind
 			h = Random.rand (1..4)
 			computer_choice = 0
 			computer_input = 0
-			@difficulty_select = "
-			Select difficulty level 
-			1 for beginner 
-			2 for intermidiate 
-			3 for advance "
+			red = "(r)ed".colorize(:color =>:red)
+			green = "(g)reen".colorize(:color =>:green)
+			blue = "(b)lue".colorize(:color =>:blue)
+			yellow = "(y)ellow".colorize(:color =>:yellow)
+			cyan = "(c)yan".colorize(:color =>:cyan)
+			magenta ="(m)agenta".colorize(:color => :magenta)
+
+			def difficult_select
+				difficulty_select = "Select difficulty level, (1) for beginner, (2) for intermidiate (3) for advance "
+			end
 			@welcome_msg = "
 					Welcome to Mastermind
 		
 			Would you like to(p)lay, read the (i)nstructions or (q)uit?"
 			@beginer_msg = "
-			I have generated a beginner sequence with four elements made up of: 
-			(r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
+			I have generated a beginner sequence with four elements made up of:
+			#{red}, #{green}, #{blue} and #{yellow} Use (q)uit at any time to end the game."
 			@intermidiate_msg = "
 			I have generated an intermidiate sequence with four elements made up of:
-			(r)ed, (g)reen, (b)lue, (p)ink, (v)iolet and (y)ellow. Use (q)uit at any time to end the game."
+			#{red}, #{green}, #{blue}, #{yellow}, #{cyan}, and #{magenta}, Use (q)uit at any time to end the game."
 			@advance_msg = "
 			I have generated an advance sequence with four elements made up of: 
-			(r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
+			#{red},#{red}, #{red}, and #{red},. Use (q)uit at any time to end the game."
 			@continue_msg = "
 			Press 'p' to play or 'q' to quit."
 			@continue_msg = "
@@ -145,12 +150,17 @@ module Mastermind
 			# Difficulty level selector
 			if user_input == 1
 				puts "#{@msg.beginer_msg}"
+				character = 0
+				col = 0
 				Game_Engine.new.game
 			elsif user_input == 2
 				puts "#{@msg.intermidiate_msg}"
-				start_time = Time.now 
+				character = 2
+				col = 1
 			elsif user_input == 3
 				puts "#{@msg.advance_msg}"
+				character = 4
+				col = 2
 			elsif user_input != 1 || user_input != 2 || user_input != 3
 				loop do
 					puts "#{@msg.invalid_entry_msg}"

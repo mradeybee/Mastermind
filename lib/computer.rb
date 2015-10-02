@@ -1,13 +1,13 @@
 require "colorize"
 class Code_generator
-    def computer_choice
-        arr = []
+    attr_reader :computer
+    def computer_choice(col)
+        @computer = []
         code = ["r","g","b","y","p","v"]
-        until arr.length == 4
-            i = Random.rand (0..3)
-            arr << code[i]
+        col_val = 4 + col
+        until @computer.length == col_val
+            i = Random.rand (0...col_val)
+            @computer << code[i]
         end
-        arr
     end
-    Computer = Code_generator.new.computer_choice
 end
