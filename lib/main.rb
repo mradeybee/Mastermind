@@ -1,6 +1,6 @@
 require_relative "computer"
 require "colorize"
-module MyMastermind
+module Mastermind
 
 ####################################
 #This is the user input class. All 

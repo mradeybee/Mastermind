@@ -1,4 +1,4 @@
-require "mastermind/version"
+#require "mastermind/version"
 require "colorize"
 require_relative "main"
 require_relative "player"

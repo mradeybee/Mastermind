@@ -1,4 +1,4 @@
-module MyMastermind
+module Mastermind
 
 	class Game_Engine 
 		def exact_match(comp_copy, player_input)

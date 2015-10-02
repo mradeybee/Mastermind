@@ -1,4 +1,4 @@
-module MyMastermind
+module Mastermind
 	class Player
 
 		# This Validates user input 
