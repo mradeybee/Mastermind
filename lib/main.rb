@@ -141,8 +141,6 @@ module Mastermind
 
 		# Difficulty Level
 		def difficulty
-
-		
 			puts "#{@msg.difficulty_select}"
 			input = Input.new	
 			user_input = input.user_input.to_i
@@ -152,7 +150,6 @@ module Mastermind
 				puts "#{@msg.beginer_msg}"
 				character = 0
 				col = 0
-				Game_Engine.new.game
 			elsif user_input == 2
 				puts "#{@msg.intermidiate_msg}"
 				character = 2
@@ -168,7 +165,7 @@ module Mastermind
 					user_input = input.user_input
 				end				
 			end
-
+			[character, col]
 		end
 
 		# This prompts for user's choice

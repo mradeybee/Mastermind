@@ -1,6 +1,9 @@
 module Mastermind
 
 	class Game_Engine 
+		def initialize
+				@computer_code = Code_generator.new.computer(Starter.new.difficulty[1])
+		end
 		# def exact_match(comp_copy, player_input)
 		# 	comp_copy = Code_generator::Computer.dup
 		# 			exact = 0
@@ -16,7 +19,7 @@ module Mastermind
 		# 			exact
 		# end
 		def exact_match(player_input)
-			comp_copy = Code_generator::Computer.dup
+			comp_copy = computer_code.dup
 					exact = 0
 					i = 0																			#
 					while i < 4										  					#

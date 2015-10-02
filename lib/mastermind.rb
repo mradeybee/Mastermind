@@ -7,7 +7,6 @@ require_relative "game_engine"
 
 module Mastermind
 Starter.new.welcome
-
 Starter.new.ask
 Game_Engine.new.game
 end
