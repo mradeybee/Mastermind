@@ -3,7 +3,7 @@ module Mastermind
 
 		# This Validates user input 
 		def is_valid?(input)
-			code = ["r","g","b","y","p","v"]
+			code = ["r","g","b","y","c","m"]
 			arr = []
 			for i in input
 				arr << i if code.include?(i)
@@ -17,26 +17,28 @@ module Mastermind
 		end
 
 		# This evaluates the user entry 
-		def player_entry
+		def player_entry(col)
 			msg = Message.new
 			input = Input.new
-			h = Random.rand(1..4)
-				user_input = input.user_input	
+			user_input = input.user_input	
 				if user_input == "q"
 						puts "#{msg.quit_msg}"
 						exit
 				elsif user_input == "h"
 						hint
-				elsif user_input.length != 4
-						puts "#{msg.invalid_entry_msg}"
-						player_entry
+				elsif user_input.length > 4 + col
+						puts "#{msg.too_long}"
+						player_entry(col)
+						elsif user_input.length < 4 + col
+						puts "#{msg.too_short}"
+						player_entry(col)
 				elsif is_valid?(user_input.split(//))
 					user_input = user_input.split(//)
 				else
 					puts "#{msg.invalid_entry_msg}"
 					player_entry
 				end
-				player_input = user_input
+			user_input
 		end	
 
 		# This gives the player a clue to computer's choice
