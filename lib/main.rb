@@ -6,8 +6,6 @@ module Mastermind
 #	inputs from the user is generated
 # by this class
 #####################################
-
-
 	class Input
 		def user_input
 			input = gets.chomp.downcase
@@ -15,19 +13,12 @@ module Mastermind
 		end
 	end
 
-#########################################
-# This is the messages class. Most of 
-# the messages used in this 
-# application can be found in this class. 
-#########################################
 
 ##########################################
 # This is the starter class. The promps at 
 # the begining of the game are being called 
 # here
 ##########################################
-
-
 	class Starter
 		def initialize 
 			@msg = Message.new
