@@ -41,10 +41,7 @@ describe Mastermind do
   it 'rejects invalid input' do
     expect(Mastermind::Player.new.is_valid?(["r", "t", "y", 1])).to be false
   end
-
-  it 'rejects longer input' do
-    expect(Mastermind::Player.new.player_entry(0)).to eql("Your input is too SHORT")
-  end
+  
   it 'returns exact matches'  do
     expect(Mastermind::Game_Engine.new(0).exact_match(["r","r","r","r"], ["r","r","r","r"])).to eql([[0, 0, 0, 0], 4])
   end
