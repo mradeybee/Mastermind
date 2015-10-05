@@ -41,7 +41,7 @@ describe Mastermind do
   it 'rejects invalid input' do
     expect(Mastermind::Player.new.is_valid?(["r", "t", "y", 1])).to be false
   end
-  
+
   it 'returns exact matches'  do
     expect(Mastermind::Game_Engine.new(0).exact_match(["r","r","r","r"], ["r","r","r","r"])).to eql([[0, 0, 0, 0], 4])
   end
@@ -49,12 +49,17 @@ describe Mastermind do
     expect(Mastermind::Game_Engine.new(0).partial_match(["g", "y", "r", "b"], ["r", "g", "b", "y"])).to eql(4)
   end
   it 'displays beginer message' do
-    expect(Mastermind::Message.new.beginer_msg).to eql("Welcome to Mastermind")
+    expect(Mastermind::Message.new.beginer_msg).to eql("I have generated a beginner sequence with four elements made up of:
+    #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game.")
   end
-  it 'displays play message' do
+  it 'displays intermidiate message' do
     expect(Mastermind::Message.new.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
   end
-  it 'displays difficulty select message' do
-  expect(Mastermind::Message.new.difficulty_select).to eql("Select difficulty level, (b)eginner, (m)medium or (a)dvance")
+  it 'displays advance select message' do
+  expect(Mastermind::Message.new.advance_mgs).to eql("I have generated an advance sequence with six elements made up of:
+  #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}, and #{@magenta}. Use (q)uit at any time to end the game.")
+  end 
+  it 'displays message for play again' do
+  expect(Mastermind::Message.new.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
   end 
 end
