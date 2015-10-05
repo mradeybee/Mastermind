@@ -2,7 +2,7 @@ module Mastermind
 
   class Game_Engine 
     attr_reader :status
-    def initialize(col=nil)
+    def initialize(col)
       starter = Starter.new
       @computer_code = Code_generator.new.computer_choice(col)
       @player = Player.new
@@ -10,29 +10,30 @@ module Mastermind
       @status = :started
     end
 
-    def exact_match(computer_code, player_input)
+    def exact_match(ccode, player_input)
       exact = 0
       i = 0 
-      comp_copy = computer_code.dup             
+      comp_copy = ccode.dup             
         while i < comp_copy.length
           if comp_copy[i] == player_input[i]
             exact += 1
-            comp_copy[i] = nil
+            comp_copy[i] = 0
           end
-            i += 1
+          i += 1
         end
       [comp_copy, exact]
     end                                   
 
     def partial_match(comp_copy, player_input)
-      partial = 0
-      i = 0                                                                 
       sec_copy = comp_copy.dup
+      i = 0 
+      partial = 0                                                       
       while i < sec_copy.length
-        if !sec_copy[i].nil? && sec_copy.include?(player_input[i])
+        part = sec_copy.index(player_input[i])
+        if !!sec_copy[i] != 0 && !! part
           partial += 1
-          sec_copy[i] = nil
-          end     
+          sec_copy[part] = 0
+        end     
       i += 1
       end
       partial                                                       

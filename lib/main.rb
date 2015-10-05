@@ -28,6 +28,7 @@ module Mastermind
 		def welcome
 			puts "#{@msg.logo}"
 			puts "#{@msg.welcome_msg}"
+			puts "#{@msg.play_msg}"
 		end
 
 		def instructions
