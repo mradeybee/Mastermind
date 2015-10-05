@@ -9,11 +9,6 @@ module Mastermind
 
 
 	class Input
-		# attr_reader :user_input
-		# def initialize
-		# 	@user_input = gets.chomp.downcase
-		# end
-
 		def user_input
 			input = gets.chomp.downcase
 			input

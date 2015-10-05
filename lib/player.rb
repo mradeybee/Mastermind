@@ -36,13 +36,13 @@ module Mastermind
 					user_input = user_input.split(//)
 				else
 					puts "#{msg.invalid_entry_msg}"
-					player_entry
+					player_entry(col)
 				end
 			user_input
 		end	
 
 		# This gives the player a clue to computer's choice
-		def hint
+		def hint(col)
 			msg = Message.new
 			c_num = 0
 			if c_num > 1
