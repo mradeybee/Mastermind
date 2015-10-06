@@ -7,7 +7,7 @@ require_relative "computer"
 require_relative "game_engine"
 
 module Mastermind
-	# starter = Starter.new
-	# starter.welcome
-	# starter.ask
+	starter = Starter.new
+	starter.welcome
+	starter.ask
 end

@@ -13,13 +13,21 @@ describe Mastermind::Game_Engine do
     expect(@game.partial_match(["g", "y", "r", "b"], ["r", "g", "b", "y"])).to eql(4)
   end
 
-  it 'allows replay' do 
-    allow(@game).to receive(:replay).and_return('y')
+  it 'asks player to replay' do 
+    allow(@game).to receive(:replay).and_return("Would you like to play again? (y)es, (n)o")
   end
+  it 'asks player again if invalid entry are entered' do 
+    allow(@game).to receive(:replay).and_return (:replay)
+  end
+
+  # it 'checks for exact matches' do
+  #   allow(@game.game(0))toreceive(:exact(["r","r","r","r"], ["r","r","r","r"])).and_return([[0, 0, 0, 0], 4])
+  # end
 
   it 'game returns winner' do 
     allow(@game).to receive(:game).and_return(:winner)
   end
+
   it 'prompts to try again' do 
     allow(@game).to receive(:analysis).and_return(:try_again)
   end
@@ -29,6 +37,6 @@ describe Mastermind::Game_Engine do
   end
 
   it 'asks loosers if they want to play again' do 
-    allow(@pgame).to receive(:try_again).and_return(:replay)
+    allow(@game).to receive(:try_again).and_return(:replay)
   end
 end
