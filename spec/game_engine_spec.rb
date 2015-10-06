@@ -26,17 +26,21 @@ describe Mastermind::Game_Engine do
 
   it 'game returns winner' do 
     allow(@game).to receive(:game).and_return(:winner)
+    expect(@game.game(0)).to eq(:winner)
   end
 
   it 'prompts to try again' do 
     allow(@game).to receive(:analysis).and_return(:try_again)
+    expect(@game.winner(0)).to eq(:try_again)  
   end
 
   it 'asks winners if they want to play again' do 
     allow(@game).to receive(:winner).and_return(:replay)
+    expect(@game.winner).to eq(:replay)
   end
 
   it 'asks loosers if they want to play again' do 
     allow(@game).to receive(:try_again).and_return(:replay)
+    expect(@game.try_again).to eq(:replay)
   end
 end
