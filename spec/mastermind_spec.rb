@@ -27,7 +27,5 @@ describe Mastermind do
   it 'has class input' do
     expect(Mastermind::Input).not_to be nil
   end
-
-  
   
 end

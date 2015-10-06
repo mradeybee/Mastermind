@@ -1,6 +1,7 @@
  require 'spec_helper'
 
  describe Mastermind::Code_generator do
+  
   before do
     @computer = Mastermind::Code_generator.new
   end

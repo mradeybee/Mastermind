@@ -113,15 +113,15 @@ module Mastermind
       end
     end
 
-    def save
-      File.open("game results", "r+") do | line |
-      line.puts @computer_code
-      line.puts @word
-      line.puts @secret_word
-      line.puts @wrongs_num.to_s
-      line.puts @len
-      end
-    end
+    # def save
+    #   File.open("game results", "r+") do | line |
+    #   line.puts @computer_code
+    #   line.puts @word
+    #   line.puts @secret_word
+    #   line.puts @wrongs_num.to_s
+    #   line.puts @len
+    #   end
+    # end
     
   end #end class
 end #end module
