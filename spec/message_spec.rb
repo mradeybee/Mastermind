@@ -35,7 +35,7 @@
      expect(@message.beginer_msg).to eq("I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game.")
   end
    it 'displays intermidiate message' do
-     expect(@message.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
+     expect(@message.intermidiate_msg).to eql("I have generated an intermidiate sequence with five elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (q)uit at any time to end the game.")
    end
    it 'displays continuation message' do
   expect(@message.continue_msg).to eql("Press 'p' to play or 'q' to quit.")
@@ -73,4 +73,32 @@
   it 'displays message for play again' do
    expect(@message.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
   end 
+
+  it 'displays message wwhen game is over' do
+   expect(@message.game_over_msg).to eql("Game Over!")
+  end 
+
+   it 'displays instruction message' do
+   expect(@message.instruction_msg).to eql(
+     <<-eos 
+        This is Mastermind
+        ** The Computer has chosen a set of colors, and the aim of the game is for you to find out those colors. 
+        ** You can press (h) to get a clue to the get the Computer's choice at the cost of a turn. 
+        ** You win when you guess all the Computer's choice correctly. 
+        ** You loose if you dont get the correct computer's choice after 12 rounds. 
+        ** Exact matches mean you guesed the right color at the right spot. 
+        ** Partial matches mean you guesed the write color but not on the right spot. 
+        *** Happy playing *** 
+        eos
+        )
+  end
+  it 'displays logo' do
+   expect(@message.logo).to eql(
+     "                                
+           _____         _           _____ _       _ 
+          |     |___ ___| |_ ___ ___|     |_|___ _| |
+          | | | | .'|_ -|  _| -_|  _| | | | |   | . |
+          |_|_|_|__,|___|_| |___|_| |_|_|_|_|_|_|___|"      
+    )
+  end
 end
