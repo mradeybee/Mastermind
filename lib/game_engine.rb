@@ -1,6 +1,8 @@
 module Mastermind
 
-  class Game_Engine 
+  class Game_Engine
+
+
     attr_reader :status
     def initialize(col)
       starter = Starter.new
@@ -9,6 +11,8 @@ module Mastermind
       @msg = Message.new
       @status = :started
     end
+
+
 
     def exact_match(ccode, player_input)
       exact = 0
@@ -22,7 +26,9 @@ module Mastermind
           i += 1
         end
       [comp_copy, exact]
-    end                                   
+    end  
+
+
 
     def partial_match(comp_copy, player_input)
       sec_copy = comp_copy.dup
@@ -38,6 +44,8 @@ module Mastermind
       end
       partial                                                       
     end   
+
+
 
     def replay
       puts "
@@ -55,6 +63,8 @@ module Mastermind
       end
     end
 
+
+
     def game(col)
       @counter = 0
       @start_time = Time.now
@@ -69,11 +79,14 @@ module Mastermind
       winner(col)
     end
 
+
+
     def analysis(player_input, exact = nil, partial = nil)
       puts "
       You entered #{player_input}" 
       try_again(exact, partial)     
     end
+
 
     def winner(col)
       final_time = (Time.now - @start_time).to_i
@@ -81,8 +94,10 @@ module Mastermind
       Nicely Done!. You won in #{final_time} seconds
       The computer chose #{@computer_code}"
       @status = :winner
+      safe
       replay
     end
+
 
     def try_again(exact, partial)
       final_time = (Time.now - @start_time).to_i
@@ -96,12 +111,17 @@ module Mastermind
       You  played the game for #{final_time} seconds"
       replay
       end
-
     end
 
+    def save
+      File.open("game results", "r+") do | line |
+      line.puts @computer_code
+      line.puts @word
+      line.puts @secret_word
+      line.puts @wrongs_num.to_s
+      line.puts @len
+      end
+    end
     
   end #end class
-
-
-
 end #end module

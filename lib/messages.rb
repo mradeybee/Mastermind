@@ -11,11 +11,11 @@ module Mastermind
 			end
 
 			def too_long 
-				"You input is too long"
+				"Your input is too long"
 			end
 
 			def too_short 
-				"You input is too short"
+				"Your input is too short"
 			end
 
 			def difficulty_select
@@ -48,40 +48,12 @@ module Mastermind
 				"Press 'p' to play or 'q' to quit."
 			end
 
-			def continue_msg 
-				"Press 'p' to play or 'q' to quit."
-			end
-
-			def start_msg 
-				"The game has started. Enter 'quit' to end the game at any point"
-			end
-
-			def guess_msg 
-				"Enter your gueses"
-			end
-
 			def win_msg 
 				"********** You Win!!! **********"
 			end
 
 			def loose_msg 
 				":( You Loose ):"
-			end
-
-			def exact_msg_one 
-			 "You have 1 exact match"
-			end
-
-			def exact_msg_many 
-				"You have #{@exact} exact matches"
-			end
-
-			def partial_msg_one 
-				"You have 1 partial match"
-			end
-
-			def partial_msg_many
-				"#{@partial} partial matches"
 			end
 
 			def hint_exceeded_msg
