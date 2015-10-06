@@ -70,10 +70,6 @@ require 'spec_helper'
        allow(@start).to receive(:difficulty).and_return(1)
       end
 
-    it 'slects advance difficulty level' do
-       expect(@start.ask).to eq(2)        
-      end
-
     it 'shows beginer difficulty level message' do
        allow(@start).to receive(:difficulty).and_return("I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game.")        
       end

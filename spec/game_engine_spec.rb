@@ -20,19 +20,12 @@ describe Mastermind::Game_Engine do
     allow(@game).to receive(:replay).and_return (:replay)
   end
 
-  # it 'checks for exact matches' do
-  #   allow(@game.game(0))toreceive(:exact(["r","r","r","r"], ["r","r","r","r"])).and_return([[0, 0, 0, 0], 4])
-  # end
 
   it 'game returns winner' do 
     allow(@game).to receive(:game).and_return(:winner)
     expect(@game.game(0)).to eq(:winner)
   end
 
-  it 'prompts to try again' do 
-    allow(@game).to receive(:analysis).and_return(:try_again)
-    expect(@game.winner(0)).to eq(:try_again)  
-  end
 
   it 'asks winners if they want to play again' do 
     allow(@game).to receive(:winner).and_return(:replay)
