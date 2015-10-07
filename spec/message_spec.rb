@@ -61,6 +61,13 @@
     expect(@message.quit_msg).to eql( "You have quit the game")
   end
 
+  it 'displays bye message' do
+    expect(@message.bye).to eql("Thanks for playing! :)")
+  end
+
+  it 'displays message to ask for user name' do
+    expect(@message.namer_msg).to eq("Enter your name")
+  end
   
    it 'displays invalid entry' do
    expect(@message.invalid_entry_msg).to eql("Invalid entry, try again")
