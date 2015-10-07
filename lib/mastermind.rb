@@ -1,7 +1,7 @@
 require_relative "mastermind/version"
 require "colorize"
-require_relative "messages"
 require_relative "input"
+require_relative "messages"
 require_relative "main"
 require_relative "player"
 require_relative "computer"

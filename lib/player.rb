@@ -47,7 +47,7 @@ module Mastermind
    msg = Message.new
    col_val = 1 + col
    c_num = 0
-   h = rand(1...4)
+   h = rand(1..4)
    if c_num >= 1 + col_val
          puts "#{msg.hint_exceeded_msg}"  
        else 

@@ -8,3 +8,21 @@ require "main"
 require "player"
 require "computer"
 require "game_engine"
+
+class Mastermind::Input
+    def user_input
+      input = "p"
+    end
+  end
+
+  class Mastermind::Starter
+    def difficulty
+      nil
+    end
+  end
+
+  module Kernel
+    def puts(x)
+      nil
+    end
+  end

@@ -4,13 +4,14 @@ module Mastermind
   class Game_Engine
 
 
-    attr_reader :status
+    attr_reader :status, :player, :counter, :final_time, :start_time  
     def initialize(col)
       starter = Starter.new
       @computer_code = Code_generator.new.computer_choice(col)
       @player = Player.new(col)
       @msg = Message.new
       @status = :started
+      @start_time  = 0
     end
 
 
@@ -87,10 +88,10 @@ module Mastermind
 
 
     def winner(col)
-      final_time = (Time.now - @start_time).to_i
+     @final_time = (Time.now - @start_time)
       puts "
       #{@msg.win_msg}
-      You won in #{final_time} seconds
+      You won in #{@final_time} seconds
       The computer chose #{@computer_code}"
       @status = :winner
       namer
@@ -108,7 +109,7 @@ module Mastermind
         puts "#{@msg.game_over_msg} #{@msg.loose_msg}
       The computer chose #{@computer_code}            
       You  played the game for #{@final_time} seconds"
-      #replay
+      replay
       end
     end
 
