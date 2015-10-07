@@ -26,3 +26,9 @@ class Mastermind::Input
       nil
     end
   end
+
+  class Mastermind::Game_Engine
+    def try_again(exact, partial)
+      @final_time = nil
+    end
+  end

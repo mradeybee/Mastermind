@@ -60,4 +60,18 @@ describe Mastermind::Game_Engine do
 
     end
    end
+
+   describe "#try_again" do
+    it 'tells player to try again' do
+      allow(@game).to receive(:replay).and_return(nil)
+      allow(@game).to receive(:counter).and_return(1)
+      expect(@game.try_again(2,2)).to be nil
+    end
+   end
+
+   describe "#namer" do
+    it 'asks for user name' do
+      expect(@game.namer).to eql("p")
+    end
+   end
 end
