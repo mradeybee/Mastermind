@@ -27,6 +27,10 @@ describe Mastermind::Game_Engine do
       it 'asks players to replay' do
       expect(@game.replay).to be nil
     end
+    it 'quits if user does not want to continue'do
+    allow(@game.player).to receive(:player_entry).with(0).and_return("q")
+    expect{@game.replay}.to raise_error SystemExit
+    end
   end
 
   describe "#game" do
@@ -74,4 +78,12 @@ describe Mastermind::Game_Engine do
       expect(@game.namer).to eql("p")
     end
    end
+
+  describe "save_file" do
+    let(:file_like_object) { double("file like object") }
+    it "should create 'filename' and put 'text' in it" do
+    allow(File).to receive(:open).with("game_results.txt", "a+").and_return(file_like_object)
+    expect(@game.save_file).to eql(file_like_object)
+    end
+    end
 end
