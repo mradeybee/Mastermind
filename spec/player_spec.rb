@@ -2,7 +2,7 @@ require 'spec_helper'
 
  describe Mastermind::Player do
  before do
-    @player = Mastermind::Player.new
+    @player = Mastermind::Player.new(0)
   end
 
   it 'takes user input' do 
