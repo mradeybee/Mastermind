@@ -1,19 +1,5 @@
 require "colorize"
 module Mastermind
-
-####################################
-#This is the user input class. All 
-#	inputs from the user is generated
-# by this class
-#####################################
-	class Input
-		def user_input
-			input = gets.chomp.downcase
-			input
-		end
-	end
-
-
 ##########################################
 # This is the starter class. The promps at 
 # the begining of the game are being called 

@@ -2,7 +2,7 @@
 
  describe Mastermind::Message do
 
-  before do
+  before :each do
     @message =  Mastermind::Message.new
     @red = "(r)ed".colorize(:color =>:red)
     @green = "(g)reen".colorize(:color =>:green)

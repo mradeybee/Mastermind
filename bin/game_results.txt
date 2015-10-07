@@ -1,0 +1,3 @@
+bayo finished the game with ["y", "y", "y", "b"] within 7 rounds in 22 seconds
+bayo finished the game with ["g", "b", "g", "g"] within 8 rounds in 42 seconds
+adeybee finished the game with ["r", "y", "r", "r"] within 5 rounds in 22 seconds

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
  describe Mastermind::Starter do
-  before do
+  before :each do
     @start = Mastermind::Starter.new
   end
 

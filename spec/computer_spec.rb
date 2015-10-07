@@ -2,7 +2,7 @@
 
  describe Mastermind::Code_generator do
   
-  before do
+  before :each do
     @computer = Mastermind::Code_generator.new
   end
 

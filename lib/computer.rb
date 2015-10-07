@@ -3,7 +3,7 @@ require_relative "main"
 module Mastermind
   class Code_generator
     attr_reader :computer
-    def computer_choice(col)
+    def computer_choice(col = nil)
       @computer = []
       code = ["r","g","b","y","c","m"]
       col_val = 4 + col

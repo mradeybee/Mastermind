@@ -1,3 +1,4 @@
+require 'pry'
 module Mastermind
 
   class Game_Engine
@@ -7,7 +8,7 @@ module Mastermind
     def initialize(col)
       starter = Starter.new
       @computer_code = Code_generator.new.computer_choice(col)
-      @player = Player.new
+      @player = Player.new(col)
       @msg = Message.new
       @status = :started
     end
@@ -48,13 +49,12 @@ module Mastermind
 
 
     def replay
-      puts "Would you like to play again? (y)es, (n)o"
+      puts "#{@msg.play_again}"
       player_input = Input.new.user_input
-      if player_input == "y"
+      if player_input == "p"
         Starter.new.difficulty
-      elsif player_input =="n"
-        puts "
-        Thanks for playing! :)"
+      elsif player_input =="q"
+        puts "#{@msg.bye}"
         exit
       else
         puts "#{@msg.invalid_entry_msg}"
@@ -81,8 +81,7 @@ module Mastermind
 
 
     def analysis(player_input, exact, partial)
-      puts "
-      You entered #{player_input}" 
+      puts "You played #{player_input}. Round #{@counter} 0f 12"
       try_again(exact, partial)     
     end
 
@@ -90,11 +89,12 @@ module Mastermind
     def winner(col)
       final_time = (Time.now - @start_time).to_i
       puts "
-      Nicely Done!. You won in #{final_time} seconds
+      #{@msg.win_msg}
+      You won in #{final_time} seconds
       The computer chose #{@computer_code}"
       @status = :winner
-      name
-      save
+      namer
+      save_file
       leaderboard
       replay
     end
@@ -103,30 +103,28 @@ module Mastermind
     def try_again(exact, partial)
       @final_time = (Time.now - @start_time).to_i
       puts "
-      You have #{exact} exact matches and #{partial} partial matches"
+      You have #{exact} exact match(es) and #{partial} partial match(es)"
       if @counter >= 12
-        puts "
-        Game Over!                                      
-        :( You Loose ):
+        puts "#{@msg.game_over_msg} #{@msg.loose_msg}
       The computer chose #{@computer_code}            
       You  played the game for #{@final_time} seconds"
-      replay
+      #replay
       end
     end
 
-    def name
-      puts "Enter your name"
+    def namer
+      puts "#{@msg.namer_msg}"
       @name = Input.new.user_input
     end
 
-    def save
+    def save_file
       File.open("game_results.txt", "a+") do | line |
-        line.puts "#{@name} finished the game with #{@player_input} in #{@final_time} seconds"
+        line.puts "#{@name} finished the game with #{@player_input} within #{@counter} rounds in #{@final_time} seconds"
       end
     end
 
     def leaderboard
-      File.open("game_results.txt", "a+") do | line |
+      File.open("game_results.txt", "r+") do | line |
         line.each_line do |text|
           puts text
         end

@@ -50,6 +50,10 @@ module Mastermind
         "********** You Win!!! **********"
       end
 
+      def bye
+        "Thanks for playing! :)"
+      end
+
       def loose_msg 
         ":( You Loose ):"
       end
@@ -58,12 +62,20 @@ module Mastermind
         "You have exceeded your hint limit"
       end
 
+      def play_again
+        "Would you like to (p)lay again? or (q)uit"
+      end
+
       def name_msg
        "Enter your Name!"
       end
 
       def quit_msg
        "You have quit the game"
+      end
+
+      def namer_msg
+        "Enter your name"
       end
 
       def invalid_entry_msg

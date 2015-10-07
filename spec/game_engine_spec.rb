@@ -1,39 +1,44 @@
  require 'spec_helper'
-
+# require 'pry'
 describe Mastermind::Game_Engine do
+  
+  class Mastermind::Input
+    def user_input
+      input = "q"
+    end
+  end
 
-  before do
+  before :each do
     @game = Mastermind::Game_Engine.new(0)
+    @input = Mastermind::Input.new
+    @start = Mastermind::Starter.new
+    @player = Mastermind::Player.new
+    @computer = Mastermind::Code_generator.new
+    allow_message_expectations_on_nil
+  end
+  
+  describe "#exact_match" do
+    it 'returns exact matches'  do
+      expect(@game.exact_match(["r","r","r","r"], ["r","r","r","r"])).to eql([[0, 0, 0, 0], 4])
+    end
   end
 
-  it 'returns exact matches'  do
-    expect(@game.exact_match(["r","r","r","r"], ["r","r","r","r"])).to eql([[0, 0, 0, 0], 4])
+  describe "#partial_match" do
+    it 'returns partial matches'  do
+      expect(@game.partial_match(["g", "y", "r", "b"], ["r", "g", "b", "y"])).to eql(4)
+    end
   end
-  it 'returns partial matches'  do
-    expect(@game.partial_match(["g", "y", "r", "b"], ["r", "g", "b", "y"])).to eql(4)
-  end
-
-  it 'asks player to replay' do 
-    allow(@game).to receive(:replay).and_return("Would you like to play again? (y)es, (n)o")
-  end
-  it 'asks player again if invalid entry are entered' do 
-    allow(@game).to receive(:replay).and_return (:replay)
-  end
-
-
-  it 'game returns winner' do 
-    allow(@game).to receive(:game).and_return(:winner)
-    expect(@game.game(0)).to eq(:winner)
+  describe "#replay" do
+      it 'asks players to replay' do
+      allow(@game).to receive(:puts).and_return(nil)
+      allow(@start).to receive(:difficulty).and_return(nil)
+      expect{@game.replay}.to raise_error SystemExit
+    end
   end
 
 
-  it 'asks winners if they want to play again' do 
-    allow(@game).to receive(:winner).and_return(:replay)
-    expect(@game.winner).to eq(:replay)
-  end
 
-  it 'asks loosers if they want to play again' do 
-    allow(@game).to receive(:try_again).and_return(:replay)
-    expect(@game.try_again).to eq(:replay)
-  end
+
+
+
 end
