@@ -12,7 +12,7 @@ describe Mastermind::Game_Engine do
     @game = Mastermind::Game_Engine.new(0)
     @input = Mastermind::Input.new
     @start = Mastermind::Starter.new
-    @player = Mastermind::Player.new
+    @player = Mastermind::Player.new(0)
     @computer = Mastermind::Code_generator.new
     allow_message_expectations_on_nil
   end
