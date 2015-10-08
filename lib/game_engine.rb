@@ -78,8 +78,20 @@ module Mastermind
       end
       winner(col)
     end
-
-
+  
+  def hint(col)
+    col_val = 1 + col
+    c_num = 0
+    h = rand(1..4)
+    if c_num >= 1 + col_val
+      puts "#{@msg.hint_exceeded_msg}"  
+    else 
+      puts "#{@computer_code[h - 1]} is at position #{h} in the computer's choice"
+      h = Random.rand(1..4)
+      c_num = c_num + 1
+      player_entry(col)
+    end
+  end
 
     def analysis(player_input, exact, partial)
       puts "You played #{player_input}. Round #{@counter} 0f 12"
@@ -89,15 +101,11 @@ module Mastermind
 
     def winner(col)
      @final_time = (Time.now - @start_time)
-      puts "
-      #{@msg.win_msg}
+      puts "#{@msg.win_msg}
       You won in #{@final_time} seconds
       The computer chose #{@computer_code}"
       @status = :winner
-      namer
-      save_file
-      leaderboard
-      replay
+      namer ; save_file ;leaderboard ; replay
     end
 
 

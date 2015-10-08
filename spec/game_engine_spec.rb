@@ -28,7 +28,8 @@ describe Mastermind::Game_Engine do
       expect(@game.replay).to be nil
     end
     it 'quits if user does not want to continue'do
-    allow(@game.player).to receive(:player_entry).with(0).and_return("q")
+    allow(@game.player).to receive(:player_entry).and_return("q")
+     allow(@game.player).to receive(:puts).and_return(nil)
     expect{@game.replay}.to raise_error SystemExit
     end
   end

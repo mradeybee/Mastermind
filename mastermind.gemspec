@@ -6,7 +6,7 @@ require 'mastermind/version'
 Gem::Specification.new do |spec|
   spec.name          = "mastermind"
   spec.version       = Mastermind::VERSION
-  spec.authors       = ["AdeyBee"]
+  spec.authors       = ["Adepoju Adebayo"]
   spec.email         = ["mradeybee@gmail.com"]
 
   spec.summary       = %q{Mastermind is a game where you will guess the the colours the computer has in mind.}
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = ['mastermind']
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler" 

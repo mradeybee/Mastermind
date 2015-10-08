@@ -1,8 +1,10 @@
 # Mastermind
+Hi all, this is Mastermind
+Lets a see how good you are at guessing. You are required to guess or figure out what your computer has in mind. Your computer will select some colors in its mind and you will have to figure out those colours. From the beginner level 'b', you will have to guess four colors in their correct order as the computer has in mind. For the intermidiate level, which is represented by 'm', you will will have to guess five colours and for the  advance level 'a', you will have to guess six colurs.
 
-Mastermind is a game where you will guess the the colours the computer has in mind. You will be told if you guess correctly or not. You will have too guess in the same order as the computer to win. 
+You will be told if you guess correctly or not. You will have too guess in the same order as the computer to win. 
 Enjoy! :)
-
+{<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />}
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -21,17 +23,13 @@ Or install it yourself as:
 
 ## Usage
 
-Run the gem in your terminal
+Run the gem in your terminal by calling 'mastermind'
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-
-{<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/andela-aadepoju/Mastermind?branch=master]
-
 
 
 ## Contributing

@@ -7,8 +7,9 @@ module Mastermind
       @computer = []
       code = ["r","g","b","y","c","m"]
       col_val = 4 + col
+      limit = col_val > code.size ? code.size : col_val
       until @computer.length == col_val
-        i = Random.rand (0...col_val)
+        i = Random.rand (0...limit)
         @computer << code[i]
       end
       @computer
