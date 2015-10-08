@@ -28,6 +28,10 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:difficulty).and_return(nil)
       expect(@game.replay).to be nil
     end
+    it 'quits if user wants to quit' do
+      allow(@game).to receive(:user_input).and_return("q")
+      expect{@game.replay}.to raise_error SystemExit
+    end
   end
 
   describe "#game" do
