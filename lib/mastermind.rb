@@ -1,11 +1,12 @@
 require_relative "mastermind/version"
 require "colorize"
-require_relative "input"
-require_relative "messages"
-require_relative "main"
-require_relative "player"
-require_relative "computer"
-require_relative "game_engine"
+require_relative "mastermind/input"
+require_relative "mastermind/difficulty"
+require_relative "mastermind/messages"
+require_relative "mastermind/starter"
+require_relative "mastermind/player"
+require_relative "mastermind/computer"
+require_relative "mastermind/game_engine"
 
 
 module Mastermind

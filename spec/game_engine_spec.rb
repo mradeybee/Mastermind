@@ -6,7 +6,6 @@ describe Mastermind::Game_Engine do
 
   before :each do
     @game = Mastermind::Game_Engine.new(0)
-    @input = Mastermind::Input.new
     @start = Mastermind::Starter.new
     @player = Mastermind::Player.new
     allow_message_expectations_on_nil
@@ -25,6 +24,8 @@ describe Mastermind::Game_Engine do
   end
   describe "#replay" do
       it 'asks players to replay' do
+      allow(@game).to receive(:user_input).and_return("p")
+      allow(@game).to receive(:difficulty).and_return(nil)
       expect(@game.replay).to be nil
     end
   end
@@ -72,6 +73,7 @@ describe Mastermind::Game_Engine do
 
    describe "#namer" do
     it 'asks for user name' do
+      allow(@game).to receive(:user_input).and_return("p")
       expect(@game.namer).to eql("p")
     end
    end

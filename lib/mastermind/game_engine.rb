@@ -1,7 +1,11 @@
 require 'pry'
+require_relative 'input'
+require_relative 'difficulty'
+
 module Mastermind
 
   class Game_Engine
+    include Input
     attr_reader :status, :player, :counter, :final_time, :start_time ,:computer_code 
     def initialize(col)
       starter = Starter.new
@@ -47,10 +51,10 @@ module Mastermind
 
     def replay
       puts "#{@msg.play_again}"
-      player_input = Input.new.user_input
-      if player_input == "p"
-        Starter.new.difficulty
-      elsif player_input =="q"
+      input = user_input
+      if input == "p"
+        difficulty
+      elsif input =="q"
         puts "#{@msg.bye}"
         exit
       else
@@ -106,7 +110,7 @@ module Mastermind
 
     def namer
       puts "#{@msg.namer_msg}"
-      @name = Input.new.user_input
+      input = user_input
     end
 
     def save_file
@@ -118,7 +122,7 @@ module Mastermind
     def leaderboard
       File.open("game_results.txt", "r+") do | line |
         line.each_line do |text|
-          puts text
+          puts text 
         end
       end
     end

@@ -1,20 +1,27 @@
+require_relative 'input'
+
 module Mastermind
+
  class Player
+
+  include Input
+
   attr_reader :input
+
   def initialize
     @h_num = 0
     @msg = Message.new
-    @input = Input.new
   end
+
   # This Validates user input 
-  def is_valid?(input)
+  def is_valid?(incode)
    code = ["r","g","b","y","c","m"]
    arr = []
-   for i in input
+   for i in incode
     arr << i if code.include?(i)
    end
    arr
-   if arr == input 
+   if arr == incode 
      true
    else
      false
@@ -23,11 +30,13 @@ module Mastermind
 
   # This evaluates the user entry 
   def player_entry(col, computer_code)
-   user_input = @input.user_input 
-    if user_input == "q"
+    input = user_input
+    case
+    when input == "q"
       puts "#{@msg.quit_msg}"
       exit
-    elsif user_input == "h"
+
+    when input == "h"
       if  @h_num < col + 1
         @h_num += 1
         hint(col, computer_code)
@@ -35,14 +44,18 @@ module Mastermind
         puts "#{@msg.hint_exceeded_msg}"
         player_entry(col, computer_code)
       end
-    elsif user_input.length > 4 + col
+
+    when input.length > 4 + col
       puts "#{@msg.too_long}"
       player_entry(col, computer_code)
-    elsif user_input.length < 4 + col
+
+    when input.length < 4 + col
       puts "#{@msg.too_short}"
       player_entry(col, computer_code)
-    elsif is_valid?(user_input.split(//))
-     user_input = user_input.split(//)
+
+    when is_valid?(input.split(//))
+     input = input.split(//)
+
     else
      puts "#{@msg.invalid_entry_msg}"
      player_entry(col,computer_code)

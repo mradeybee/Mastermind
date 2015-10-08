@@ -1,5 +1,5 @@
 require "colorize"
-require_relative "main"
+require_relative "starter"
 module Mastermind
   
   class Code_generator

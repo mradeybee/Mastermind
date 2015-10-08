@@ -1,17 +1,17 @@
 require 'coveralls'
 Coveralls.wear!
 
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../../lib/mastermind', __FILE__)
 require 'mastermind'
 require "messages"
-require "main"
+require "starter"
 require "player"
 require "computer"
 require "game_engine"
 
-class Mastermind::Input
+module Input
     def user_input
-      input = "p"
+       "p"
     end
   end
 

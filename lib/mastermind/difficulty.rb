@@ -1,21 +1,26 @@
+require "colorize"
+require_relative 'input'
+
 module Difficulty
+
   def difficulty
     puts "#{@msg.difficulty_select}"
-    user_input = @input.user_input
-    if user_input == "b"
+
+     input = user_input
+     case 
+    when input == "b"
       puts "#{@msg.beginer_msg}"
       col = 0
       begin_game(col)
-
-    elsif user_input == "m"
+    when input == "m"
       puts "#{@msg.intermidiate_msg}"
       col = 2
       begin_game(col)
-    elsif user_input == "a"
+    when input == "a"
       puts "#{@msg.advance_msg}"
       col = 4
       begin_game(col) 
-    else
+    else  
         puts "#{@msg.invalid_entry_msg}"
         difficulty
     end

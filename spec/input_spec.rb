@@ -1,13 +1,10 @@
 require 'spec_helper'
 
-describe Mastermind::Input do
-  before :each do
-    @input = Mastermind::Input.new
-  end 
-
+describe Input do
+  include Input
   describe "#user_input" do
     it 'holds user input' do
-      expect(@input.user_input).to eql("p")
+      expect(user_input).to eql("p")
     end
-  end
+  end 
 end

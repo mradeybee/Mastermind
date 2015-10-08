@@ -1,4 +1,7 @@
 require "colorize"
+require_relative 'input'
+require_relative 'difficulty'
+
 module Mastermind
 ##########################################
 # This is the starter class. The promps at 
@@ -6,9 +9,12 @@ module Mastermind
 # here
 ##########################################
 	class Starter
+
+		include Input
+		include Difficulty
+
 		def initialize 
 			@msg = Message.new
-			@input = Input.new
 		end 
 
 		def welcome
@@ -24,13 +30,14 @@ module Mastermind
 		end
 
 		def ask
-			user_input = @input.user_input
-			if user_input == "p"
-				difficulty
-			elsif user_input == "q"
+			input = user_input
+			case 
+			when input == "p"
+				difficulty 	
+			when input == "q"
 				puts "#{@msg.quit_msg}"
 				exit
-			elsif user_input == "i"
+			when input == "i"
 				instructions
 			else
 					puts "#{@msg.invalid_entry_msg}"

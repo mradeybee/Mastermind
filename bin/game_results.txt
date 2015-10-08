@@ -6,3 +6,4 @@ bayo finished the game with ["y", "y", "g", "y"] within 5 rounds in  seconds
 bayo finished the game with ["g", "y", "r", "g"] within 7 rounds in  seconds
 bayo finished the game with ["y", "y", "r", "r"] within 3 rounds in 15 seconds
 adebayo finished the game with ["r", "g", "g", "b"] within 10 rounds in 61 seconds
+ finished the game with ["y", "r", "y", "b"] within 5 rounds in 23 seconds

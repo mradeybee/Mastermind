@@ -5,9 +5,9 @@ module Mastermind
   # inputs from the user is generated
   # by this class
   #####################################
-    class Input
+    module Input
       def user_input
-        input = gets.chomp.downcase
+        gets.chomp.downcase
       end
     end
 end
