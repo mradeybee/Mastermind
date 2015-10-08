@@ -4,13 +4,13 @@ Lets a see how good you are at guessing. You are required to guess or figure out
 
 You have twelve rounds to figure out the computer's mind. If you do not guess right in twelve rounds, you loose. ): You can use 'h' to get hints. This is limited by your difficulty level.
 Enjoy! :)
-{<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />}
+<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mastermind'
+gem 'mastermind_adeybee'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mastermind
+    $ gem install mastermind_adeybee
 
 ## Usage
 
