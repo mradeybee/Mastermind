@@ -32,6 +32,12 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:user_input).and_return("q")
       expect{@game.replay}.to raise_error SystemExit
     end
+
+    it 'detects invalid entries' do
+      allow(@game).to receive(:user_input).and_return("k")
+      allow(@game).to receive(:replay).and_return(nil)
+      expect(@game.replay).to be nil
+    end
   end
 
   describe "#game" do
