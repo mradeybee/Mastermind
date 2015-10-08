@@ -32,3 +32,4 @@ class Mastermind::Input
       @final_time = nil
     end
   end
+

@@ -31,15 +31,15 @@ module Mastermind
       end
         
       def beginer_msg 
-        "I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game."
+        "I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (h) to get hints, you have 1 hint. Use (q)uit at any time to end the game."
       end 
 
       def intermidiate_msg
-        "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (q)uit at any time to end the game."
+        "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game."
       end
 
       def advance_msg 
-        "I have generated an advance sequence with eight elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}, and #{@magenta}. Use (q)uit at any time to end the game."
+        "I have generated an advance sequence with eight elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}, and #{@magenta}. Use (h) to get hints, you have 5 hint. Use (q)uit at any time to end the game."
       end
 
       def continue_msg 

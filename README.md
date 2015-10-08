@@ -1,8 +1,8 @@
 # Mastermind
 Hi all, this is Mastermind
-Lets a see how good you are at guessing. You are required to guess or figure out what your computer has in mind. Your computer will select some colors in its mind and you will have to figure out those colours. From the beginner level 'b', you will have to guess four colors in their correct order as the computer has in mind. For the intermidiate level, which is represented by 'm', you will will have to guess five colours and for the  advance level 'a', you will have to guess six colurs.
+Lets a see how good you are at guessing. You are required to guess or figure out what your computer has in mind. Your computer will select some colors in its mind and you will have to figure out those colours. From the beginner level 'b', you will have to guess four colors in their correct order as the computer has in mind. For the intermidiate level, which is represented by 'm', you will will have to guess six colours and for the  advance level 'a', you will have to guess eight colors. You will be given feedback on the number of guesses you got right in the exact order as exact match and the ones you guessed right but not in the same order as partial matches.
 
-You will be told if you guess correctly or not. You will have too guess in the same order as the computer to win. 
+You have twelve rounds to figure out the computer's mind. If you do not guess right in twelve rounds, you loose. ): You can use 'h' to get hints. This is limited by your difficulty level.
 Enjoy! :)
 {<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />}
 ## Installation

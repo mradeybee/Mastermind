@@ -2,19 +2,15 @@ require 'pry'
 module Mastermind
 
   class Game_Engine
-
-
-    attr_reader :status, :player, :counter, :final_time, :start_time  
+    attr_reader :status, :player, :counter, :final_time, :start_time ,:computer_code 
     def initialize(col)
       starter = Starter.new
       @computer_code = Code_generator.new.computer_choice(col)
-      @player = Player.new(col)
+      @player = Player.new    
       @msg = Message.new
       @status = :started
       @start_time  = 0
     end
-
-
 
     def exact_match(ccode, player_input)
       exact = 0
@@ -69,7 +65,7 @@ module Mastermind
       @counter = 0
       @start_time = Time.now
       loop do
-        @player_input = @player.player_entry(col)
+        @player_input = @player.player_entry(col, @computer_code)
         exact = exact_match(@computer_code, @player_input) 
         partial = partial_match(exact[0], @player_input)
         @counter += 1
@@ -78,20 +74,7 @@ module Mastermind
       end
       winner(col)
     end
-  
-  def hint(col)
-    col_val = 1 + col
-    c_num = 0
-    h = rand(1..4)
-    if c_num >= 1 + col_val
-      puts "#{@msg.hint_exceeded_msg}"  
-    else 
-      puts "#{@computer_code[h - 1]} is at position #{h} in the computer's choice"
-      h = Random.rand(1..4)
-      c_num = c_num + 1
-      player_entry(col)
-    end
-  end
+ 
 
     def analysis(player_input, exact, partial)
       puts "You played #{player_input}. Round #{@counter} 0f 12"
@@ -100,9 +83,9 @@ module Mastermind
 
 
     def winner(col)
-     @final_time = (Time.now - @start_time)
+     @final_time = (Time.now - @start_time).to_i
       puts "#{@msg.win_msg}
-      You won in #{@final_time} seconds
+      You won in #{@final_time} seconds within #{@counter} rounds
       The computer chose #{@computer_code}"
       @status = :winner
       namer ; save_file ;leaderboard ; replay
