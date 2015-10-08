@@ -35,7 +35,7 @@ module Mastermind
       end 
 
       def intermidiate_msg
-        "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game."
+        "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}and #{@magenta}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game."
       end
 
       def advance_msg 

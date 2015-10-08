@@ -35,7 +35,7 @@
      expect(@message.beginer_msg).to eq("I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (h) to get hints, you have 1 hint. Use (q)uit at any time to end the game.")
   end
    it 'displays intermidiate message' do
-     expect(@message.intermidiate_msg).to eql("I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game.")
+     expect(@message.intermidiate_msg).to eql( "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}and #{@magenta}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game.")
    end
    it 'displays continuation message' do
   expect(@message.continue_msg).to eql("Press 'p' to play or 'q' to quit.")
