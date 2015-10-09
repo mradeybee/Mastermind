@@ -6,6 +6,7 @@ module Mastermind
 
   class Game_Engine
     include Input
+    include Difficulty
     attr_reader :status, :player, :counter, :final_time, :start_time ,:computer_code 
     def initialize(col)
       starter = Starter.new
@@ -110,7 +111,7 @@ module Mastermind
 
     def namer
       puts "#{@msg.namer_msg}"
-      input = user_input
+      @name = user_input
     end
 
     def save_file
@@ -120,13 +121,19 @@ module Mastermind
     end
 
     def leaderboard
-      File.open("game_results.txt", "r+") do | line |
-        line.each_line do |text|
-          puts text 
-        end
+      lead_arr = []
+      File.open("game_results.txt", "r") do | lines |
+       lines.each_line do |text|
+        lead_arr << text
+        @leader = lead_arr.sort_by { |line| line[/\d+ rounds/].to_i &&  line[/\d+ seconds/].to_i}
       end
+      end
+      puts "#{@leader.first(11  ).join.to_s}"
     end
-    
-    
+
   end #end class
+
+
+
+
 end #end module

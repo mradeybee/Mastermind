@@ -1,9 +1,18 @@
-bayo finished the game with ["y", "y", "y", "b"] within 7 rounds in 22 seconds
-bayo finished the game with ["g", "b", "g", "g"] within 8 rounds in 42 seconds
-adeybee finished the game with ["r", "y", "r", "r"] within 5 rounds in 22 seconds
-adeybee finished the game with ["r", "g", "g", "r"] within 5 rounds in 13 seconds
-bayo finished the game with ["y", "y", "g", "y"] within 5 rounds in  seconds
-bayo finished the game with ["g", "y", "r", "g"] within 7 rounds in  seconds
-bayo finished the game with ["y", "y", "r", "r"] within 3 rounds in 15 seconds
-adebayo finished the game with ["r", "g", "g", "b"] within 10 rounds in 61 seconds
- finished the game with ["y", "r", "y", "b"] within 5 rounds in 23 seconds
+                 **************TOP 10*************
+ade finished the game with ["g", "b", "b", "b"] within 7 rounds in 35 seconds
+ade finished the game with ["b", "y", "b", "b"] within 11 rounds in 82 seconds
+ade finished the game with ["b", "g", "r", "b"] within 5 rounds in 46 seconds
+ade finished the game with ["b", "b", "y", "r"] within 6 rounds in 32 seconds
+ade finished the game with ["b", "y", "r", "y"] within 8 rounds in 44 seconds
+ade finished the game with ["r", "r", "y", "y"] within 5 rounds in 15 seconds
+ade finished the game with ["b", "b", "b", "r"] within 3 rounds in 7 seconds
+ade finished the game with ["g", "g", "g", "g"] within 2 rounds in 4 seconds
+bayo finished the game with ["y", "r", "r", "g"] within 6 rounds in 27 seconds
+ade finished the game with ["g", "b", "r", "y"] within 8 rounds in 49 seconds
+ade finished the game with ["g", "y", "g", "g"] within 7 rounds in 77 seconds
+ade finished the game with ["b", "b", "y", "g"] within 4 rounds in 17 seconds
+adeb finished the game with ["r", "r", "g", "g"] within 6 rounds in 25 seconds
+ade finished the game with ["g", "r", "b", "y"] within 6 rounds in 26 seconds
+adee finished the game with ["r", "b", "b", "y"] within 4 rounds in 16 seconds
+ade finished the game with ["r", "r", "g", "g"] within 7 rounds in 33 seconds
+adeybee finished the game with ["g", "y", "b", "g"] within 8 rounds in 55 seconds

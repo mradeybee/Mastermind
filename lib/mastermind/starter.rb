@@ -45,10 +45,7 @@ module Mastermind
 			end
 		end
 		
-		def begin_game(col)
-			@game_starter = Game_Engine.new(col)
-			@game_starter.game(col)
-		end
+	
 
 	end # end class Starter
 end # end module
