@@ -8,7 +8,8 @@ module Mastermind
     include Input
     include Difficulty
     
-    attr_reader :status, :player, :counter, :final_time, :start_time ,:computer_code 
+    attr_reader :status, :player, :counter, :final_time,
+    :start_time ,:computer_code, :leaderboard
    
     def initialize(col)
       starter = Starter.new
@@ -107,7 +108,7 @@ module Mastermind
 
     def leaderboard
       lead_arr = []
-      File.open("game_results.txt", "r") do | lines |
+      File.open("game_results.txt", "a+") do | lines |
       lines.each_line do |text| ;  lead_arr << text
       @leader = lead_arr.sort_by { |line| line[/\d+ seconds/].to_i && line[/\d+ rounds/].to_i}
       end

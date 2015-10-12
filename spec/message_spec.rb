@@ -87,6 +87,10 @@
     expect(@message.bye).to eql("Thanks for playing! :)")
   end
 
+   it 'displays hint message' do
+    expect(@message.hint_msg(2, ["r","r","r","r"])).to eql("r is at position 2 in the computer's choice" )
+  end
+
   it 'displays message to ask for user name' do
     expect(@message.namer_msg).to eq("Enter your name")
   end

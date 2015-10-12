@@ -77,7 +77,9 @@ describe Mastermind::Game_Engine do
    describe "#try_again" do
     it 'tells player to try again' do
       allow(@game).to receive(:replay).and_return(nil)
-      allow(@game).to receive(:counter).and_return(1)
+      allow(@game).to receive(:final_time).and_return(nil)
+      allow(@game).to receive(:counter).and_return(12)
+      allow(@game).to receive(:puts).and_return(nil)
       expect(@game.try_again(2,2)).to be nil
     end
    end
@@ -89,13 +91,13 @@ describe Mastermind::Game_Engine do
     end
    end
 
-  describe "save_file" do
-    
+  describe "#save_file" do
     let(:file_like_object) { double("file like object") }
     it "should create 'filename' and put 'text' in it" do
     allow(@game).to receive(:leaderboard).and_return(nil)
+    allow(@game).to receive(:puts).and_return(nil)
     allow(File).to receive(:open).with("game_results.txt", "a+").and_return(file_like_object)
     expect(@game.save_file).to be nil
     end
-end
+  end  
 end
