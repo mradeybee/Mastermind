@@ -48,6 +48,7 @@ require 'spec_helper'
 
     it 'throws an error message if invalid entry is made' do
       allow(@start).to receive(:user_input).and_return("k")
+      allow(@start).to receive(:puts).and_return(nil)
       allow(@start).to receive(:ask).and_return(nil)
       expect(@start.ask).to be nil
     end
