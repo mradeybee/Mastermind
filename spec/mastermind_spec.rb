@@ -27,9 +27,13 @@ end
   
 
 
-describe Input do
-  include Input
+describe Mastermind::Input do
+  before do
+    @input = Class.new.extend(Mastermind::Input)
+  end
+  include Mastermind::Input
     it 'has module Input ' do
-      expect(user_input).not_to be nil
+      allow(@input).to receive(:user_input).and_return(nil)
+      expect(@input.user_input).to be nil
     end
 end

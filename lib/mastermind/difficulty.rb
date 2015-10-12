@@ -3,7 +3,9 @@ require_relative 'input'
 
 module Mastermind
   module Difficulty
+   
     def difficulty
+      @msg = Message.new
       puts "#{@msg.difficulty_select}"
       input = user_input
       case 

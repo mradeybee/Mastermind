@@ -24,6 +24,7 @@ describe Mastermind::Game_Engine do
   end
   describe "#replay" do
       it 'asks players to replay' do
+      allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:user_input).and_return("p")
       allow(@game).to receive(:difficulty).and_return(nil)
       allow(@game).to receive(:replay).and_return(nil)
@@ -31,10 +32,12 @@ describe Mastermind::Game_Engine do
     end
     it 'quits if user wants to quit' do
       allow(@game).to receive(:user_input).and_return("q")
+      allow(@game).to receive(:puts).and_return(nil)
       expect{@game.replay}.to raise_error SystemExit
     end
 
     it 'detects invalid entries' do
+      allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:user_input).and_return("k")
       allow(@game).to receive(:replay).and_return(nil)
       expect(@game.replay).to be nil
@@ -55,6 +58,7 @@ describe Mastermind::Game_Engine do
 
    describe "#analysis" do
     it 'analyses the game' do
+      allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:counter).and_return(1)
       allow(@game).to receive(:try_again).and_return(nil)
       expect(@game.analysis(["r", "g", "b", "y"], 4, 0)).to be nil 
@@ -63,6 +67,7 @@ describe Mastermind::Game_Engine do
 
    describe "#winner" do
     it 'checks for winners' do
+      allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:start_time).and_return(1)
       allow(@game).to receive(:final_time).and_return(2)
       allow(@game).to receive(:namer).and_return(nil)
@@ -86,6 +91,7 @@ describe Mastermind::Game_Engine do
 
    describe "#namer" do
     it 'asks for user name' do
+      allow(@game).to receive(:puts).and_return(nil)
       allow(@game).to receive(:user_input).and_return("p")
       expect(@game.namer).to eql("p")
     end

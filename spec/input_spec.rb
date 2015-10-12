@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-  describe Input do
-  include Input
+  describe Mastermind::Input do
+  include Mastermind::Input
   describe "#user_input" do
     it 'holds user input' do
-      expect(user_input).to eql("p")
+      allow(Mastermind::Input).to receive(:user_input).and_return("Input")
+      expect(Mastermind::Input.user_input).to eql("Input")
     end
   end 
 end

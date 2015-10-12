@@ -10,23 +10,18 @@ require "computer"
 require "game_engine"
 require "difficulty"
 
-module Input
-    def user_input
-       "p"
-    end
-  end
+# module Input
+#     def user_input
+#        "p"
+#     end
+#   end
 
-  class Mastermind::Starter
-    def difficulty
-      nil
-    end
-  end
-
-  module Kernel
-    def puts(x)
-      nil
-    end
-  end
+  # module Kernel
+  #   def puts(x)
+  #     nil
+  #   end
+  # end
+   
 
   class Mastermind::Game_Engine
     def try_again(exact, partial)
