@@ -11,21 +11,17 @@ module Mastermind
   def initialize
     @h_num = 0
     @msg = Message.new
+    @code = ["r","g","b","y","c","m"]
   end
 
   # This Validates user input 
   def is_valid?(incode)
-   code = ["r","g","b","y","c","m"]
-   arr = []
-   for i in incode
-    arr << i if code.include?(i)
-   end
-   arr
-   if arr == incode 
-     true
-   else
-     false
-   end
+     arr = []
+    for i in incode
+      arr << i if @code.include?(i)
+    end
+    arr
+    true if arr == incode 
   end
 
   # This evaluates the user entry 
@@ -35,7 +31,7 @@ module Mastermind
     when input == "q"
       puts "#{@msg.quit_msg}"
       exit
-
+   
     when input == "h"
       if  @h_num < col + 1
         @h_num += 1
@@ -54,18 +50,18 @@ module Mastermind
       player_entry(col, computer_code)
 
     when is_valid?(input.split(//))
-     input = input.split(//)
+      input = input.split(//)
 
     else
-     puts "#{@msg.invalid_entry_msg}"
-     player_entry(col,computer_code)
+      puts "#{@msg.invalid_entry_msg}"
+      player_entry(col,computer_code)
     end   
   end 
 
   # This gives the player a clue to computer's choice
   def hint(col, computer_code)
     h = rand(1..4)
-    puts "#{computer_code[h - 1]} is at position #{h} in the computer's choice"
+    puts "#{@msg.hint_msg(h, computer_codes)}"
     h = rand(1..4)
     player_entry(col,computer_code)
   end #end hint

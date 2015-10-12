@@ -1,18 +1,13 @@
-                 **************TOP 10*************
-ade finished the game with ["g", "b", "b", "b"] within 7 rounds in 35 seconds
-ade finished the game with ["b", "y", "b", "b"] within 11 rounds in 82 seconds
-ade finished the game with ["b", "g", "r", "b"] within 5 rounds in 46 seconds
-ade finished the game with ["b", "b", "y", "r"] within 6 rounds in 32 seconds
-ade finished the game with ["b", "y", "r", "y"] within 8 rounds in 44 seconds
-ade finished the game with ["r", "r", "y", "y"] within 5 rounds in 15 seconds
-ade finished the game with ["b", "b", "b", "r"] within 3 rounds in 7 seconds
-ade finished the game with ["g", "g", "g", "g"] within 2 rounds in 4 seconds
-bayo finished the game with ["y", "r", "r", "g"] within 6 rounds in 27 seconds
-ade finished the game with ["g", "b", "r", "y"] within 8 rounds in 49 seconds
-ade finished the game with ["g", "y", "g", "g"] within 7 rounds in 77 seconds
-ade finished the game with ["b", "b", "y", "g"] within 4 rounds in 17 seconds
-adeb finished the game with ["r", "r", "g", "g"] within 6 rounds in 25 seconds
-ade finished the game with ["g", "r", "b", "y"] within 6 rounds in 26 seconds
-adee finished the game with ["r", "b", "b", "y"] within 4 rounds in 16 seconds
-ade finished the game with ["r", "r", "g", "g"] within 7 rounds in 33 seconds
-adeybee finished the game with ["g", "y", "b", "g"] within 8 rounds in 55 seconds
+           (((((((((((((((((((((((((((((((((((((((((((TOP 10)))))))))))))))))))))))))))))))))))))))))))
+adepoju guessed the sequence ["r", "g", "r", "y"] within 5 rounds in 27 seconds
+adebayo guessed the sequence ["y", "b", "b", "b"] in 8 rounds within 46 seconds
+ade guessed the sequence ["g", "b", "g", "y"] in 7 rounds within 40 seconds
+adebayo guessed the sequence ["g", "g", "r", "r"] in 8 rounds within 38 seconds
+lawrence guessed the sequence ["y", "b", "b", "y"] in 6 rounds within 41 seconds
+lawrence guessed the sequence ["b", "g", "r", "g"] in 11 rounds within 153 seconds
+adebayo guessed the sequence ["g", "b", "b", "r"] in 5 rounds within 31 seconds
+adebayo guessed the sequence ["r", "r", "r", "y"] in 4 rounds within 20 seconds
+adebayo guessed the sequence ["r", "r", "g", "b"] in 6 rounds within 37 seconds
+ guessed the sequence ["g", "y", "g", "b"] in 6 rounds within 25 seconds
+adebayo guessed the sequence ["b", "g", "g", "r"] in 1 rounds within 4 seconds
+ade guessed the sequence ["b", "r", "b", "b"] in 6 rounds within 27 seconds

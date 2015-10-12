@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Input do
+  describe Input do
   include Input
   describe "#user_input" do
     it 'holds user input' do

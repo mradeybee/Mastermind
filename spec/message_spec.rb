@@ -20,6 +20,26 @@
    expect(@message.too_short).to eql("Your input is too short")
   end 
 
+   it 'displays results' do
+  expect(@message.result(2,2)).to eql("You have 2 exact match(es) and 2 partial match(es)")
+  end
+
+   it 'writes to leaderboard file' do
+  expect(@message.leader_msg("Bayo", "rrrr", 2, 20)).to eql("Bayo guessed the sequence rrrr in 2 rounds within 20 seconds")
+  end
+
+   it 'displays number of rouds played' do
+  expect(@message.rounds("rrrr",2)).to eql( "You played rrrr. Round 2 0f 12")
+  end
+
+  it 'displays Computer\'s choice' do
+  expect(@message.comp_choice_msg("rrrr")).to eql("The computer chose rrrr")
+  end
+
+  it 'displays play time message' do
+  expect(@message.play_time_msg(20)).to eql("You  played the game for 20 seconds")
+  end
+
   it 'displays difficulty select message' do
   expect(@message.difficulty_select).to eql("Select difficulty level, (b)eginner, (m)medium or (a)dvance")
   end
@@ -28,7 +48,7 @@
     expect(@message.welcome_msg).to eql("Welcome to Mastermind")
   end
   it 'displays play message' do
-    expect(@message.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
+    expect(@message.play_msg).to eql("Would you like to (p)lay, read the (i)nstructions or (q)uit?")
   end
    
    it 'displays beginer message' do
@@ -42,7 +62,9 @@
   end
 
   it 'displays win message' do
-   expect(@message.win_msg).to eql("********** You Win!!! **********")
+   expect(@message.win_msg(23, 5, "rrrr")).to eql("********** You Win!!! **********
+        You won in 23 seconds within 5 rounds
+        The computer chose rrrr")
    end
 
    it 'displays loose message' do
@@ -78,7 +100,7 @@
   end
   
   it 'displays message for play again' do
-   expect(@message.play_msg).to eql("Would you like to(p)lay, read the (i)nstructions or (q)uit?")
+   expect(@message.play_msg).to eql("Would you like to (p)lay, read the (i)nstructions or (q)uit?")
   end 
 
   it 'displays message wwhen game is over' do

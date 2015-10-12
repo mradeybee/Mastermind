@@ -1,73 +1,59 @@
-require 'pry'
 require_relative 'input'
 require_relative 'difficulty'
 
 module Mastermind
 
   class Game_Engine
+    
     include Input
     include Difficulty
+    
     attr_reader :status, :player, :counter, :final_time, :start_time ,:computer_code 
+   
     def initialize(col)
       starter = Starter.new
       @computer_code = Code_generator.new.computer_choice(col)
       @player = Player.new    
       @msg = Message.new
-      @status = :started
       @start_time  = 0
+      @counter = 0
     end
 
+
     def exact_match(ccode, player_input)
-      exact = 0
-      i = 0 
-      comp_copy = ccode.dup             
+      exact = 0 ; i = 0 ; comp_copy = ccode.dup             
         while i < comp_copy.length
           if comp_copy[i] == player_input[i]
-            exact += 1
-            comp_copy[i] = 0
+            exact += 1 ; comp_copy[i] = 0
           end
           i += 1
         end
       [comp_copy, exact]
-    end  
-
+    end
 
 
     def partial_match(comp_copy, player_input)
-      sec_copy = comp_copy.dup
-      i = 0 
-      partial = 0                                                       
+      sec_copy = comp_copy.dup ; i = 0 ; partial = 0                                                       
       while i < sec_copy.length
         part = sec_copy.index(player_input[i])
         if !!sec_copy[i] != 0 && !! part
-          partial += 1
-          sec_copy[part] = 0
+          partial += 1 ; sec_copy[part] = 0
         end     
       i += 1
       end
       partial                                                       
-    end   
-
+    end  
 
 
     def replay
-      puts "#{@msg.play_again}"
-      input = user_input
-      if input == "p"
-        difficulty
-      elsif input =="q"
-        puts "#{@msg.bye}"
-        exit
-      else
-        puts "#{@msg.invalid_entry_msg}"
-        replay
-      end
+      puts "#{@msg.play_again}" ; input = user_input
+      difficulty if input == "p"
+      puts "#{@msg.bye}" ; exit if input =="q"
+      puts "#{@msg.invalid_entry_msg}" ; replay if input != "p" || input != "q"
     end
 
 
-
     def game(col)
-      @counter = 0
       @start_time = Time.now
       loop do
         @player_input = @player.player_entry(col, @computer_code)
@@ -79,61 +65,55 @@ module Mastermind
       end
       winner(col)
     end
- 
 
+ 
     def analysis(player_input, exact, partial)
-      puts "You played #{player_input}. Round #{@counter} 0f 12"
+      puts "#{@msg.rounds(player_input, @counter)}"
+      puts "#{@msg.result(exact,partial)}"
       try_again(exact, partial)     
     end
 
 
     def winner(col)
      @final_time = (Time.now - @start_time).to_i
-      puts "#{@msg.win_msg}
-      You won in #{@final_time} seconds within #{@counter} rounds
-      The computer chose #{@computer_code}"
-      @status = :winner
-      namer ; save_file ;leaderboard ; replay
+      puts "#{@msg.win_msg(@final_time, @counter, @computer_code)}"   
+      namer ; save_file; replay
     end
 
 
     def try_again(exact, partial)
       @final_time = (Time.now - @start_time).to_i
-      puts "
-      You have #{exact} exact match(es) and #{partial} partial match(es)"
       if @counter >= 12
-        puts "#{@msg.game_over_msg} #{@msg.loose_msg}
-      The computer chose #{@computer_code}            
-      You  played the game for #{@final_time} seconds"
+      puts "#{@msg.game_over_msg}"; puts" #{@msg.loose_msg}" 
+      puts "#{@msg.comp_choice_msg(@computer_code)}" ; puts "#{@msg.play_time_msg(@final_time)}"
       replay
       end
     end
+
 
     def namer
       puts "#{@msg.namer_msg}"
       @name = user_input
     end
 
+
     def save_file
       File.open("game_results.txt", "a+") do | line |
-        line.puts "#{@name} finished the game with #{@player_input} within #{@counter} rounds in #{@final_time} seconds"
+        line.puts "#{@msg.leader_msg(@name, @computer_code, @counter, @final_time)}"
       end
+      leaderboard 
     end
+
 
     def leaderboard
       lead_arr = []
       File.open("game_results.txt", "r") do | lines |
-       lines.each_line do |text|
-        lead_arr << text
-        @leader = lead_arr.sort_by { |line| line[/\d+ rounds/].to_i &&  line[/\d+ seconds/].to_i}
+      lines.each_line do |text| ;  lead_arr << text
+      @leader = lead_arr.sort_by { |line| line[/\d+ seconds/].to_i && line[/\d+ rounds/].to_i}
       end
       end
-      puts "#{@leader.first(11  ).join.to_s}"
+      puts "#{@leader.first(11).join.to_s}"
     end
 
   end #end class
-
-
-
-
 end #end module

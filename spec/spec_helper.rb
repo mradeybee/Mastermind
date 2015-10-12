@@ -8,6 +8,7 @@ require "starter"
 require "player"
 require "computer"
 require "game_engine"
+require "difficulty"
 
 module Input
     def user_input

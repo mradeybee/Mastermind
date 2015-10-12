@@ -3,7 +3,6 @@ require 'spec_helper'
  describe Mastermind::Player do
  before do
     @player = Mastermind::Player.new
-    # @input = Mastermind::Input.new
   end
   describe "#is_valid?" do
     it 'takes user input' do 
@@ -16,7 +15,7 @@ require 'spec_helper'
     end
 
     it 'rejects invalid input' do
-      expect(@player.is_valid?(["r", "t", "y", 1])).to be false
+      expect(@player.is_valid?(["r", "t", "y", 1])).to be nil
     end
   end
 end 

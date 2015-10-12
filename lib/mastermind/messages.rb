@@ -18,6 +18,26 @@ module Mastermind
         "Your input is too short"
       end
 
+      def result(exact, partial)
+        "You have #{exact} exact match(es) and #{partial} partial match(es)"
+      end
+
+      def leader_msg(name, computer_code, counter, final_time)
+        "#{name} guessed the sequence #{computer_code} in #{counter} rounds within #{final_time} seconds"
+      end
+
+      def rounds(player_input, counter)
+        "You played #{player_input}. Round #{counter} 0f 12"
+      end
+
+      def comp_choice_msg(computer_code)
+        "The computer chose #{computer_code}"
+      end
+
+      def play_time_msg(final_time)
+        "You  played the game for #{final_time} seconds"
+      end
+
       def difficulty_select
         "Select difficulty level, (b)eginner, (m)medium or (a)dvance"
       end
@@ -27,7 +47,7 @@ module Mastermind
       end
 
       def play_msg
-        "Would you like to(p)lay, read the (i)nstructions or (q)uit?"
+        "Would you like to (p)lay, read the (i)nstructions or (q)uit?"
       end
         
       def beginer_msg 
@@ -46,8 +66,14 @@ module Mastermind
         "Press 'p' to play or 'q' to quit."
       end
 
-      def win_msg 
-        "********** You Win!!! **********"
+      def hint_msg(h, computer_code)
+        "#{computer_code[h - 1]} is at position #{h} in the computer's choice"        
+      end
+
+      def win_msg(final_time, counter, computer_code) 
+        "********** You Win!!! **********
+        You won in #{final_time} seconds within #{counter} rounds
+        The computer chose #{computer_code}"
       end
 
       def bye

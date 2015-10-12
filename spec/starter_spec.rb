@@ -62,23 +62,5 @@ require 'spec_helper'
       allow(@start).to receive(:ask).and_return("Invalid entry, try again")
     end
 
-    it 'slects beginer difficulty level' do
-       allow(@start).to receive(:difficulty).and_return(0)        
-      end
-
-    it 'slects intermidiate difficulty level' do
-       allow(@start).to receive(:difficulty).and_return(1)
-      end
-
-    it 'shows beginer difficulty level message' do
-       allow(@start).to receive(:difficulty).and_return("I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game.")        
-      end
-
-      it 'shows intermidiate difficulty level message' do
-       allow(@start).to receive(:difficulty).and_return("I have generated an intermidiate sequence with five elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow} and #{@cyan}. Use (q)uit at any time to end the game.")        
-      end
-
-    it 'shows advance difficulty level message' do
-      allow(@start).to receive(:difficulty).and_return("I have generated a beginner sequence with four elements made up of: #{@red}, #{@green}, #{@blue} and #{@yellow} Use (q)uit at any time to end the game.")        
-     end
+  
 end

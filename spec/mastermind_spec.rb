@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Mastermind do
-
+ 
   it 'has a version number' do
     expect(Mastermind::VERSION).not_to be nil
   end
@@ -23,9 +23,13 @@ describe Mastermind do
   it 'has class starter' do 
     expect(Mastermind::Starter).not_to be nil
   end
-
-  it 'has class input' do
-    expect(Mastermind::Input).not_to be nil
-  end
+end
   
+
+
+describe Input do
+  include Input
+    it 'has module Input ' do
+      expect(user_input).not_to be nil
+    end
 end
