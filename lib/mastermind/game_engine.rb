@@ -98,23 +98,22 @@ module Mastermind
     end
 
 
-    def save_file
-      File.open("game_results.txt", "a+") do | line |
+    def save_file(filename = "game_results.txt")
+      File.open(filename, "a+") do | line |
         line.puts "#{@msg.leader_msg(@name, @computer_code, @counter, @final_time)}"
       end
       leaderboard 
     end
 
-
-    def leaderboard
+    def leaderboard(filename = "game_results.txt" )
       lead_arr = []
-      File.open("game_results.txt", "a+") do | lines |
-      lines.each_line do |text| ;  lead_arr << text
-      @leader = lead_arr.sort_by { |line| line[/\d+ seconds/].to_i && line[/\d+ rounds/].to_i}
-      end
+      File.open(filename, "r") do | lines |
+        lines.each_line do |text| 
+          lead_arr << text
+          @leader = lead_arr.sort_by { |line| Result.new(line)}
+        end
       end
       puts "#{@leader.first(11).join.to_s}"
     end
-
   end #end class
 end #end module

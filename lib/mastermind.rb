@@ -7,6 +7,7 @@ require_relative "mastermind/starter"
 require_relative "mastermind/player"
 require_relative "mastermind/computer"
 require_relative "mastermind/game_engine"
+require_relative "mastermind/result"
 
 
 module Mastermind

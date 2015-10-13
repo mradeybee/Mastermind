@@ -85,7 +85,7 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:final_time).and_return(nil)
       allow(@game).to receive(:counter).and_return(12)
       allow(@game).to receive(:puts).and_return(nil)
-      expect(@game.try_again(2,2)).to be nil
+      expect(@game.try_again(4,0)).to be nil
     end
    end
 
@@ -98,12 +98,18 @@ describe Mastermind::Game_Engine do
    end
 
   describe "#save_file" do
-    let(:file_like_object) { double("file like object") }
     it "should create 'filename' and put 'text' in it" do
     allow(@game).to receive(:leaderboard).and_return(nil)
-    allow(@game).to receive(:puts).and_return(nil)
-    allow(File).to receive(:open).with("game_results.txt", "a+").and_return(file_like_object)
-    expect(@game.save_file).to be nil
+    allow(@game).to receive(:puts).and_return("tested")
+    expect(@game.save_file("./bin/testgameresults.txt")).to be nil
     end
   end  
+
+  describe "#leaderboard" do
+   
+    it "should read the result file and print out top ten" do
+    allow(@game).to receive(:puts).and_return(nil)
+    expect(@game.leaderboard("./bin/testgameresults.txt")).to be nil
+    end
+  end
 end

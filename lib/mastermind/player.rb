@@ -61,7 +61,7 @@ module Mastermind
   # This gives the player a clue to computer's choice
   def hint(col, computer_code)
     h = rand(1..4)
-    puts "#{@msg.hint_msg(h, computer_codes)}"
+    puts "#{@msg.hint_msg(h, computer_code)}"
     h = rand(1..4)
     player_entry(col,computer_code)
   end #end hint
