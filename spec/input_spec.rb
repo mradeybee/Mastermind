@@ -7,8 +7,8 @@ require 'spec_helper'
   end
   describe "#user_input" do
     it 'holds user input' do
-      allow(@input).to receive(:user_input).and_return(nil)
-      expect(@input.user_input).to be nil
+      allow(@input).to receive(:gets).and_return("p")
+      expect(@input.user_input).to eql("p")
     end
   end 
 end
