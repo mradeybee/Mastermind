@@ -9,6 +9,7 @@ require "player"
 require "computer"
 require "game_engine"
 require "difficulty"
+require "result"
 
 # module Input
 #     def user_input
