@@ -32,18 +32,15 @@ describe Mastermind::Difficulty do
     end
  
   it 'rejects invalid entry' do
-    allow(@difficulty).to receive(:puts).and_return(nil)
     allow(@difficulty).to receive(:user_input).and_return("k")
-    allow(@difficulty).to receive(:difficulty).and_return(nil)
+    allow(@difficulty).to receive(:puts).and_return(nil)
+    allow(@difficulty).to receive(:non_valid).and_return(nil)
     expect(@difficulty.difficulty).to eql(nil)
   end
 end
 
-
- #  describe "#begin_game" do
- #    it 'starts the game' do
- #      allow(@difficulty)
- #      expect(@difficulty.begin_game(0)).to be nil
- #    end
- # end
+  it 'tests methos non valid' do
+    allow(@difficulty).to receive(:difficulty).and_return(nil)
+    expect(@difficulty.non_valid).to be nil
+  end
 end

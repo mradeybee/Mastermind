@@ -18,4 +18,31 @@ require 'spec_helper'
       expect(@player.is_valid?(["r", "t", "y", 1])).to be nil
     end
   end
+
+   describe "#player_entry" do
+    it 'quits if player enters q' do
+      allow(@player).to receive(:user_input).and_return("q")
+      expect{@player.player_entry(0,["r","r","r","r"])}.to raise_error SystemExit
+    end
+
+    it 'shows hint' do
+      allow(@player).to receive(:user_input).and_return("h")
+      allow(@player).to receive(:hint).and_return(nil)
+      allow(@player).to receive(:puts).and_return(nil)
+      expect(@player.player_entry(0,["r","r","r","r"])).to be nil 
+    end
+
+    it 'turns user input into an array' do
+      allow(@player).to receive(:user_input).and_return("rrrr")
+      expect(@player.player_entry(0,["r","r","r","r"])).to eql(["r","r","r","r"])
+    end
+  end
+
+  describe "#hint" do
+    it 'gets hint' do
+      allow(@player).to receive(:puts).and_return (nil)
+      allow(@player).to receive(:player_entry).and_return (nil)
+      expect(@player.hint(0,["r","r","r","r"])).to be nil
+    end
+  end
 end 

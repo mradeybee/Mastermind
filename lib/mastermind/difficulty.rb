@@ -23,8 +23,12 @@ module Mastermind
           begin_game(col) 
         else  
           puts "#{@msg.invalid_entry_msg}"
-          difficulty
+          non_valid
       end
+    end
+
+    def non_valid
+      difficulty
     end
 
     def begin_game(col)

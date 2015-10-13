@@ -81,10 +81,10 @@ describe Mastermind::Game_Engine do
 
    describe "#try_again" do
     it 'tells player to try again' do
+      allow(@game).to receive(:final_time).and_return(20)
+      allow(@game).to receive(:counter).and_return(13)
+      allow(@game).to receive(:puts).and_return("done")
       allow(@game).to receive(:replay).and_return(nil)
-      allow(@game).to receive(:final_time).and_return(nil)
-      allow(@game).to receive(:counter).and_return(12)
-      allow(@game).to receive(:puts).and_return(nil)
       expect(@game.try_again(4,0)).to be nil
     end
    end
@@ -106,7 +106,6 @@ describe Mastermind::Game_Engine do
   end  
 
   describe "#leaderboard" do
-   
     it "should read the result file and print out top ten" do
     allow(@game).to receive(:puts).and_return(nil)
     expect(@game.leaderboard("./bin/testgameresults.txt")).to be nil
