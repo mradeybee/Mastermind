@@ -1,6 +1,6 @@
 module Mastermind
   class Message
-      # attribute readers
+      
       def initialize
         @red = "(r)ed".colorize(:color =>:red)
         @green = "(g)reen".colorize(:color =>:green)
@@ -32,10 +32,6 @@ module Mastermind
 
       def comp_choice_msg(computer_code)
         "The computer chose #{computer_code}"
-      end
-
-      def play_time_msg(final_time)
-        "You  played the game for #{final_time} seconds"
       end
 
       def difficulty_select
@@ -76,10 +72,6 @@ module Mastermind
         "Thanks for playing! :)"
       end
 
-      def loose_msg 
-        ":( You Loose ):"
-      end
-
       def hint_exceeded_msg
         "You have exceeded your hint limit"
       end
@@ -100,8 +92,11 @@ module Mastermind
        "Invalid entry, try again"
       end
 
-      def game_over_msg
-       "Game Over!"
+      def game_over_msg(computer_code, final_time)
+       "Game Over!
+       :( You Loose ):
+       The computer chose #{computer_code}
+       You  played the game for #{final_time} seconds"
       end
 
       def instruction_msg 
@@ -123,6 +118,6 @@ module Mastermind
           |     |___ ___| |_ ___ ___|     |_|___ _| |
           | | | | .'|_ -|  _| -_|  _| | | | |   | . |
           |_|_|_|__,|___|_| |___|_| |_|_|_|_|_|_|___|"                                                    
+      end
     end
   end
-end

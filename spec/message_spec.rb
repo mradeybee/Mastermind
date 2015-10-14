@@ -36,10 +36,6 @@
   expect(@message.comp_choice_msg("rrrr")).to eql("The computer chose rrrr")
   end
 
-  it 'displays play time message' do
-  expect(@message.play_time_msg(20)).to eql("You  played the game for 20 seconds")
-  end
-
   it 'displays difficulty select message' do
   expect(@message.difficulty_select).to eql("Select difficulty level, (b)eginner, (m)medium or (a)dvance")
   end
@@ -62,10 +58,6 @@
    expect(@message.win_msg(23, 5, "rrrr")).to eql("********** You Win!!! **********
         You won in 23 seconds within 5 rounds
         The computer chose rrrr")
-   end
-
-   it 'displays loose message' do
-   expect(@message.loose_msg).to eql(":( You Loose ):")
    end
 
     it 'displays message for username' do
@@ -101,7 +93,11 @@
   end
 
   it 'displays message wwhen game is over' do
-   expect(@message.game_over_msg).to eql("Game Over!")
+    code = ["r","r","r","r"]
+   expect(@message.game_over_msg(["r","r","r","r"], 20)).to eql("Game Over!
+       :( You Loose ):
+       The computer chose #{code}
+       You  played the game for 20 seconds")
   end 
 
    it 'displays instruction message' do

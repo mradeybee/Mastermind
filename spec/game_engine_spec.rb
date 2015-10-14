@@ -31,7 +31,8 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:partial_match).and_return(0)
       allow(@game).to receive(:analysis).and_return(nil)
       allow(@game).to receive(:winner).and_return(nil)
-      expect(@game.game(0)).to be nil
+      allow(@game).to receive(:difficulty).and_return(0)
+      expect(@game.game).to be nil
     end
   end
 
@@ -53,18 +54,18 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:save_file).and_return(nil)
       allow(@game).to receive(:leaderboard).and_return(nil)
       allow(@game).to receive(:ask).and_return(nil)
-      expect(@game.winner(0)).to be nil
+      expect(@game.winner).to be nil
 
     end
    end
 
    describe "#try_again" do
     it 'tells player to try again' do
-      allow(@game).to receive(:final_time).and_return(20)
+      allow(@game).to receive(:final_time).and_return(nil)
       allow(@game).to receive(:counter).and_return(13)
-      allow(@game).to receive(:puts).and_return("done")
-      allow(@game).to receive(:replay).and_return(nil)
-      expect(@game.try_again(4,0)).to be nil
+      allow(@game).to receive(:puts).and_return(nil)
+      allow(@game).to receive(:ask).and_return(nil)
+      expect(@game.try_again(0,2)).to be nil
     end
    end
 

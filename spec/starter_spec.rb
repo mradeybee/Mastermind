@@ -37,12 +37,22 @@ require 'spec_helper'
 
     it 'asks users to select difficulty level' do
       allow(@start).to receive(:user_input).and_return("p")
-      allow(@start).to receive(:difficulty).and_return(nil)
+      allow(@start).to receive(:difficulty).and_return(0)
+      allow(@start).to receive(:puts).and_return(nil)
+      allow(@start).to receive(:game).and_return(nil)
+      expect(@start.ask).to eq(nil)
+    end
+
+    it 'asks users to view leaderboard' do
+      allow(@start).to receive(:user_input).and_return("l")
+      allow(@start).to receive(:puts).and_return(nil)
+      allow(@start).to receive(:leaderboard).and_return(nil)
       expect(@start.ask).to eq(nil)
     end
 
     it 'allows users to quit the game' do
       allow(@start).to receive(:user_input).and_return("q")
+      allow(@start).to receive(:puts).and_return(nil)
       expect{@start.ask}.to raise_error SystemExit
     end
 
@@ -56,7 +66,7 @@ require 'spec_helper'
     it 'rrturns invalid message' do
       allow(@start).to receive(:puts).and_return(nil)
       allow(@start).to receive(:ask).and_return(nil)
-      expect(@start.invalid(2)).to be nil
+      expect(@start.invalid).to be nil
     end
 
   

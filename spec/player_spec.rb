@@ -1,6 +1,6 @@
 require 'spec_helper'
 
- describe Mastermind::Player do
+describe Mastermind::Player do
  before do
     @player = Mastermind::Player.new
   end
@@ -22,6 +22,7 @@ require 'spec_helper'
    describe "#player_entry" do
     it 'quits if player enters q' do
       allow(@player).to receive(:user_input).and_return("q")
+      allow(@player).to receive(:puts).and_return(nil)
       expect{@player.player_entry(0,["r","r","r","r"])}.to raise_error SystemExit
     end
 
@@ -37,6 +38,11 @@ require 'spec_helper'
       expect(@player.player_entry(0,["r","r","r","r"])).to eql(["r","r","r","r"])
     end
   end
+
+  # it 'detects short inputs' do
+  #     allow(@player).to receive(:user_input).and_return("rrr")
+  #     expect(@player.player_entry(0,["r","r","r","r"])).to eql(["r","r","r","r"])
+  #   end
 
   describe "#hint" do
     it 'gets hint' do

@@ -2,11 +2,9 @@ require_relative 'input'
 require_relative 'difficulty'
 
 module Mastermind
-
   class Game_Engine
-    
     include Input
-    
+    include Difficulty
     attr_reader :status, :player, :counter, :final_time,
     :start_time ,:computer_code, :leaderboard
    
@@ -34,46 +32,20 @@ module Mastermind
         when input == "l"
           leaderboard
         when input == "p"
-          difficulty 
+          game
         when input == "q"
           puts "#{@msg.quit_msg}"
           exit
         when input == "i"
           instructions
         else
-          invalid(2)
+          invalid
       end
     end
 
-    def difficulty
-      puts "#{@msg.difficulty_select}"
-      input = user_input
-      case 
-        when input == "b"
-          puts "#{@msg.beginer_msg}"
-          col = 0
-          game(col)
-        when input == "m"
-          puts "#{@msg.intermidiate_msg}"
-          col = 2
-          game(col)
-        when input == "a"
-          puts "#{@msg.advance_msg}"
-          col = 4
-          game(col) 
-        else  
-          non_valid(1)
-      end
-    end
-
-    def invalid(val)
-      if val == 1
-        puts "#{@msg.invalid_entry_msg}"
-        difficulty
-      else
-        puts "#{@msg.invalid_entry_msg}"
-        ask
-      end
+    def invalid
+      puts "#{@msg.invalid_entry_msg}"
+      ask
     end
 
     def exact_match(ccode, player_input)
@@ -87,7 +59,6 @@ module Mastermind
       [comp_copy, exact]
     end
 
-
     def partial_match(comp_copy, player_input)
       sec_copy = comp_copy.dup ; i = 0 ; partial = 0                                                       
       while i < sec_copy.length
@@ -100,7 +71,9 @@ module Mastermind
       partial                                                       
     end  
 
-    def game(col)
+    def game
+      @player.h_num = 0
+      col = difficulty(@msg)  
       @computer_code = Code_generator.new.computer_choice(col)
       @start_time = Time.now
       loop do
@@ -111,7 +84,7 @@ module Mastermind
         analysis(@player_input, exact[1], partial)
         break if exact[1] == exact[0].length
       end
-      winner(col)
+      winner
     end
 
  
@@ -122,20 +95,18 @@ module Mastermind
     end
 
 
-    def winner(col)
+    def winner
      @final_time = (Time.now - @start_time).to_i
       puts "#{@msg.win_msg(@final_time, @counter, @computer_code)}"   
-      namer ; save_file; ask
+      namer ; save_file; @counter = 0 
+      ask
     end
 
 
     def try_again(exact, partial)
       @final_time = (Time.now - @start_time).to_i
-      if @counter >= 12
-      puts "#{@msg.game_over_msg}"; puts" #{@msg.loose_msg}" 
-      puts "#{@msg.comp_choice_msg(@computer_code)}" ; puts "#{@msg.play_time_msg(@final_time)}"
-      ask
-      end
+      puts "#{@msg.game_over_msg(@computer_code, @final_time)}" if @counter >= 12
+      @counter = 0; ask
     end
 
 
