@@ -105,8 +105,10 @@ module Mastermind
 
     def try_again(exact, partial)
       @final_time = (Time.now - @start_time).to_i
-      puts "#{@msg.game_over_msg(@computer_code, @final_time)}" if @counter >= 12
+      if @counter >= 12
+      puts "#{@msg.game_over_msg(@computer_code, @final_time)}"
       @counter = 0; ask
+      end
     end
 
 
@@ -130,7 +132,7 @@ module Mastermind
           @leader = lead_arr.sort_by { |line| Result.new(line)}
         end
       end
-      puts "#{@leader.first(11).join.to_s}"
+      puts "#{@leader.first(10).join.to_s}"
       ask
     end
 

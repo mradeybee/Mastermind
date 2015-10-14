@@ -48,3 +48,5 @@ ade guessed the sequence ["b", "b", "g", "g"] in 4 rounds within 34 seconds
 ade guessed the sequence ["y", "b", "g", "b"] in 8 rounds within 37 seconds
 ade guessed the sequence ["y", "b", "r", "g"] in 8 rounds within 47 seconds
 adebayo guessed the sequence ["g", "b", "g", "g"] in 3 rounds within 19 seconds
+ade guessed the sequence ["b", "y", "y", "r"] in 8 rounds within 32 seconds
+adebayo guessed the sequence ["b", "m", "g", "b", "m", "b"] in 8 rounds within 73 seconds
