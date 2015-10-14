@@ -20,9 +20,6 @@ describe Mastermind do
   it 'has class message' do
     expect(Mastermind::Message).not_to be nil
     end
-  it 'has class starter' do 
-    expect(Mastermind::Starter).not_to be nil
-  end
 end
   
 

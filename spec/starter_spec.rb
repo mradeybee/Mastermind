@@ -1,8 +1,8 @@
 require 'spec_helper'
 
- describe Mastermind::Starter do
+ describe Mastermind::Game_Engine do
   before :each do
-    @start = Mastermind::Starter.new
+    @start = Mastermind::Game_Engine.new
     allow_message_expectations_on_nil 
   end
 
@@ -49,8 +49,14 @@ require 'spec_helper'
     it 'throws an error message if invalid entry is made' do
       allow(@start).to receive(:user_input).and_return("k")
       allow(@start).to receive(:puts).and_return(nil)
-      allow(@start).to receive(:ask).and_return(nil)
+      allow(@start).to receive(:invalid).and_return(nil)
       expect(@start.ask).to be nil
+    end
+
+    it 'rrturns invalid message' do
+      allow(@start).to receive(:puts).and_return(nil)
+      allow(@start).to receive(:ask).and_return(nil)
+      expect(@start.invalid(2)).to be nil
     end
 
   

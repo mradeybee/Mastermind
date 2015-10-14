@@ -47,7 +47,7 @@ module Mastermind
       end
 
       def play_msg
-        "Would you like to (p)lay, read the (i)nstructions or (q)uit?"
+        "Press (p) to play, (i) to read the (i)nstructions, (l) to view leaderboard  or (q) to quit?"
       end
         
       def beginer_msg 
@@ -60,10 +60,6 @@ module Mastermind
 
       def advance_msg 
         "I have generated an advance sequence with eight elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}, and #{@magenta}. Use (h) to get hints, you have 5 hint. Use (q)uit at any time to end the game."
-      end
-
-      def continue_msg 
-        "Press 'p' to play or 'q' to quit."
       end
 
       def hint_msg(h, computer_code)
@@ -86,10 +82,6 @@ module Mastermind
 
       def hint_exceeded_msg
         "You have exceeded your hint limit"
-      end
-
-      def play_again
-        "Would you like to (p)lay again? or (q)uit"
       end
 
       def name_msg

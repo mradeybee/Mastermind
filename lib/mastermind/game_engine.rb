@@ -6,20 +6,75 @@ module Mastermind
   class Game_Engine
     
     include Input
-    include Difficulty
     
     attr_reader :status, :player, :counter, :final_time,
     :start_time ,:computer_code, :leaderboard
    
-    def initialize(col)
-      starter = Starter.new
-      @computer_code = Code_generator.new.computer_choice(col)
+    def initialize
       @player = Player.new    
       @msg = Message.new
       @start_time  = 0
       @counter = 0
     end
 
+    def welcome
+      puts "#{@msg.logo}"
+      puts "#{@msg.welcome_msg}"
+    end
+
+    def instructions
+      puts "#{@msg.instruction_msg}"
+      ask
+    end
+
+    def ask
+      puts "#{@msg.play_msg}"
+      input = user_input
+      case 
+        when input == "l"
+          leaderboard
+        when input == "p"
+          difficulty 
+        when input == "q"
+          puts "#{@msg.quit_msg}"
+          exit
+        when input == "i"
+          instructions
+        else
+          invalid(2)
+      end
+    end
+
+    def difficulty
+      puts "#{@msg.difficulty_select}"
+      input = user_input
+      case 
+        when input == "b"
+          puts "#{@msg.beginer_msg}"
+          col = 0
+          game(col)
+        when input == "m"
+          puts "#{@msg.intermidiate_msg}"
+          col = 2
+          game(col)
+        when input == "a"
+          puts "#{@msg.advance_msg}"
+          col = 4
+          game(col) 
+        else  
+          non_valid(1)
+      end
+    end
+
+    def invalid(val)
+      if val == 1
+        puts "#{@msg.invalid_entry_msg}"
+        difficulty
+      else
+        puts "#{@msg.invalid_entry_msg}"
+        ask
+      end
+    end
 
     def exact_match(ccode, player_input)
       exact = 0 ; i = 0 ; comp_copy = ccode.dup             
@@ -45,16 +100,8 @@ module Mastermind
       partial                                                       
     end  
 
-
-    def replay
-      puts "#{@msg.play_again}" ; input = user_input
-      difficulty if input == "p"
-      puts "#{@msg.bye}" ; exit if input =="q"
-      puts "#{@msg.invalid_entry_msg}" ; replay if input != "p" || input != "q"
-    end
-
-
     def game(col)
+      @computer_code = Code_generator.new.computer_choice(col)
       @start_time = Time.now
       loop do
         @player_input = @player.player_entry(col, @computer_code)
@@ -78,7 +125,7 @@ module Mastermind
     def winner(col)
      @final_time = (Time.now - @start_time).to_i
       puts "#{@msg.win_msg(@final_time, @counter, @computer_code)}"   
-      namer ; save_file; replay
+      namer ; save_file; ask
     end
 
 
@@ -87,7 +134,7 @@ module Mastermind
       if @counter >= 12
       puts "#{@msg.game_over_msg}"; puts" #{@msg.loose_msg}" 
       puts "#{@msg.comp_choice_msg(@computer_code)}" ; puts "#{@msg.play_time_msg(@final_time)}"
-      replay
+      ask
       end
     end
 
@@ -102,7 +149,6 @@ module Mastermind
       File.open(filename, "a+") do | line |
         line.puts "#{@msg.leader_msg(@name, @computer_code, @counter, @final_time)}"
       end
-      leaderboard 
     end
 
     def leaderboard(filename = "game_results.txt" )
@@ -114,6 +160,8 @@ module Mastermind
         end
       end
       puts "#{@leader.first(11).join.to_s}"
+      ask
     end
+
   end #end class
 end #end module

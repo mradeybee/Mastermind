@@ -48,7 +48,7 @@
     expect(@message.welcome_msg).to eql("Welcome to Mastermind")
   end
   it 'displays play message' do
-    expect(@message.play_msg).to eql("Would you like to (p)lay, read the (i)nstructions or (q)uit?")
+    expect(@message.play_msg).to eql("Press (p) to play, (i) to read the (i)nstructions, (l) to view leaderboard  or (q) to quit?")
   end
    
    it 'displays beginer message' do
@@ -57,9 +57,6 @@
    it 'displays intermidiate message' do
      expect(@message.intermidiate_msg).to eql( "I have generated an intermidiate sequence with six elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}and #{@magenta}. Use (h) to get hints, you have 3 hint. Use (q)uit at any time to end the game.")
    end
-   it 'displays continuation message' do
-  expect(@message.continue_msg).to eql("Press 'p' to play or 'q' to quit.")
-  end
 
   it 'displays win message' do
    expect(@message.win_msg(23, 5, "rrrr")).to eql("********** You Win!!! **********
@@ -102,10 +99,6 @@
   it 'displays advance select message' do
   expect(@message.advance_msg).to eql("I have generated an advance sequence with eight elements made up of: #{@red}, #{@green}, #{@blue}, #{@yellow}, #{@cyan}, and #{@magenta}. Use (h) to get hints, you have 5 hint. Use (q)uit at any time to end the game.")
   end
-  
-  it 'displays message for play again' do
-   expect(@message.play_msg).to eql("Would you like to (p)lay, read the (i)nstructions or (q)uit?")
-  end 
 
   it 'displays message wwhen game is over' do
    expect(@message.game_over_msg).to eql("Game Over!")

@@ -5,8 +5,7 @@ describe Mastermind::Game_Engine do
   
 
   before :each do
-    @game = Mastermind::Game_Engine.new(0)
-    @start = Mastermind::Starter.new
+    @game = Mastermind::Game_Engine.new
     @player = Mastermind::Player.new
     allow_message_expectations_on_nil
   end
@@ -22,27 +21,7 @@ describe Mastermind::Game_Engine do
       expect(@game.partial_match(["g", "y", "r", "b"], ["r", "g", "b", "y"])).to eql(4)
     end
   end
-  describe "#replay" do
-      it 'asks players to replay' do
-      allow(@game).to receive(:puts).and_return(nil)
-      allow(@game).to receive(:user_input).and_return("p")
-      allow(@game).to receive(:difficulty).and_return(nil)
-      allow(@game).to receive(:replay).and_return(nil)
-      expect(@game.replay).to be nil
-    end
-    it 'quits if user wants to quit' do
-      allow(@game).to receive(:user_input).and_return("q")
-      allow(@game).to receive(:puts).and_return(nil)
-      expect{@game.replay}.to raise_error SystemExit
-    end
-
-    it 'detects invalid entries' do
-      allow(@game).to receive(:puts).and_return(nil)
-      allow(@game).to receive(:user_input).and_return("k")
-      allow(@game).to receive(:replay).and_return(nil)
-      expect(@game.replay).to be nil
-    end
-  end
+ 
 
   describe "#game" do
     it 'plays the game' do
@@ -73,7 +52,7 @@ describe Mastermind::Game_Engine do
       allow(@game).to receive(:namer).and_return(nil)
       allow(@game).to receive(:save_file).and_return(nil)
       allow(@game).to receive(:leaderboard).and_return(nil)
-      allow(@game).to receive(:replay).and_return(nil)
+      allow(@game).to receive(:ask).and_return(nil)
       expect(@game.winner(0)).to be nil
 
     end
@@ -108,6 +87,7 @@ describe Mastermind::Game_Engine do
   describe "#leaderboard" do
     it "should read the result file and print out top ten" do
     allow(@game).to receive(:puts).and_return(nil)
+    allow(@game).to receive(:ask).and_return(nil)
     expect(@game.leaderboard("./bin/testgameresults.txt")).to be nil
     end
   end

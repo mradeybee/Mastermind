@@ -13,17 +13,9 @@ module Mastermind
       @msg = Message.new
     end 
 
-    def welcome
-      puts "#{@msg.logo}"
-      puts "#{@msg.welcome_msg}"
-      puts "#{@msg.play_msg}"
-    end
+   
 
-    def instructions
-      puts "#{@msg.instruction_msg}"
-      puts "#{@msg.continue_msg}"
-      ask
-    end
+    
 
     def ask
       input = user_input
@@ -36,9 +28,13 @@ module Mastermind
       when input == "i"
         instructions
       else
-        puts "#{@msg.invalid_entry_msg}"
-        ask
+        invalid
       end
+    end
+
+    def invalid
+      puts "#{@msg.invalid_entry_msg}"
+      ask
     end
     
   

@@ -14,7 +14,7 @@ require "mastermind"
 #IRB.start
 
 module Mastermind
-    starter = Starter.new
-    starter.welcome
-    starter.ask
+    game = Game_Engine.new
+    game.welcome
+    game.ask
 end
