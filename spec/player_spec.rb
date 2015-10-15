@@ -32,6 +32,13 @@ describe Mastermind::Player do
       allow(@player).to receive(:puts).and_return(nil)
       expect(@player.player_entry(0,["r","r","r","r"])).to be nil 
     end
+     it 'shows hint limit' do
+      allow(@player).to receive(:user_input).and_return("h")
+      allow(@player).to receive(:h_num).and_return(2)
+      allow(@player).to receive(:invalid).and_return(nil)
+      allow(@player).to receive(:puts).and_return(nil)
+      expect(@player.player_entry(0,["r","r","r","r"])).to be nil 
+    end
 
     it 'turns user input into an array' do
       allow(@player).to receive(:user_input).and_return("rrrr")
@@ -39,10 +46,27 @@ describe Mastermind::Player do
     end
   end
 
-  # it 'detects short inputs' do
-  #     allow(@player).to receive(:user_input).and_return("rrr")
-  #     expect(@player.player_entry(0,["r","r","r","r"])).to eql(["r","r","r","r"])
-  #   end
+  it 'detects short inputs' do
+      allow(@player).to receive(:user_input).and_return("rrr")
+      allow(@player).to receive(:puts).and_return(nil)
+      allow(@player).to receive(:invalid).and_return(nil)
+      expect(@player.player_entry(0,["r","r","r","r"])).to be nil
+    end
+
+  it 'detects long inputs' do
+    allow(@player).to receive(:user_input).and_return("rrrrr")
+    allow(@player).to receive(:puts).and_return(nil)
+    allow(@player).to receive(:invalid).and_return(nil)
+    expect(@player.player_entry(0,["r","r","r","r"])).to be nil
+  end
+
+
+  it 'detects invalid inputs' do
+    allow(@player).to receive(:user_input).and_return("rrwr")
+    allow(@player).to receive(:puts).and_return(nil)
+    allow(@player).to receive(:invalid).and_return(nil)
+    expect(@player.player_entry(0,["r","r","r","r"])).to be nil
+  end
 
   describe "#hint" do
     it 'gets hint' do
