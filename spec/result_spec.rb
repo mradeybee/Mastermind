@@ -4,6 +4,12 @@ describe Mastermind::Result do
     @result = Mastermind::Result.new("string")
   end
 
+
+    it 'sort lines' do
+      allow(@result).to receive(:score).and_return(nil)
+      expect(@result.<=>(@result)).to eql(0)
+    end
+
      it 'compares the lines of code' do
       allow(@result).to receive(:rounds).and_return(nil)
       allow(@result).to receive(:seconds).and_return(nil)

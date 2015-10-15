@@ -107,7 +107,8 @@ module Mastermind
       @final_time = (Time.now - @start_time).to_i
       if @counter >= 12
       puts "#{@msg.game_over_msg(@computer_code, @final_time)}"
-      @counter = 0; ask
+      @counter = 0
+      ask
       end
     end
 
