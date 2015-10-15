@@ -39,7 +39,7 @@ describe Mastermind::Game_Engine do
    describe "#analysis" do
     it 'analyses the game' do
       allow(@game).to receive(:puts).and_return(nil)
-      allow(@game).to receive(:counter).and_return(1)
+      allow(@game).to receive(:counter).and_return(12)
       allow(@game).to receive(:try_again).and_return(nil)
       expect(@game.analysis(["r", "g", "b", "y"], 4, 0)).to be nil 
     end
@@ -62,8 +62,9 @@ describe Mastermind::Game_Engine do
    describe "#try_again" do
     it 'tells player to try again' do
       allow(@game).to receive(:final_time).and_return(20)
-      allow(@game).to receive(:counter).and_return(15)
+      allow(@game).to receive(:counter).and_return(13)
       allow(@game).to receive(:puts).and_return("nil")
+      allow(@game).to receive(:counter).and_return(0)
       allow(@game).to receive(:ask).and_return("tried")
       expect(@game.try_again(2,2)).to eql("tried")
     end

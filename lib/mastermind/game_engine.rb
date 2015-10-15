@@ -91,7 +91,9 @@ module Mastermind
     def analysis(player_input, exact, partial)
       puts "#{@msg.rounds(player_input, @counter)}"
       puts "#{@msg.result(exact,partial)}"
-      try_again(exact, partial)     
+      if @counter >= 12
+        try_again(exact, partial)    
+      end 
     end
 
 
@@ -105,11 +107,9 @@ module Mastermind
 
     def try_again(exact, partial)
       @final_time = (Time.now - @start_time).to_i
-      if @counter >= 12
-      puts "#{@msg.game_over_msg(@computer_code, @final_time)}"
-      @counter = 0
-      end
-      ask
+        puts "#{@msg.game_over_msg(@computer_code, @final_time)}"
+        @counter = 0
+        ask     
     end
 
 
