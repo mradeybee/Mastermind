@@ -1,8 +1,7 @@
 require 'spec_helper'
 
  describe Mastermind::Game_Engine do
-  before :each do
-     let(:start) {  Mastermind::Game_Engine.new }
+  let(:start) {  Mastermind::Game_Engine.new }
   before :each do
     allow_message_expectations_on_nil 
   end
