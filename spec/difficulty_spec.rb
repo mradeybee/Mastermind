@@ -31,6 +31,13 @@ describe Mastermind::Difficulty do
       allow(@difficulty).to receive(:puts).and_return(nil)
       expect(@difficulty.difficulty(@msg)).to eq(4)
     end
+
+    it 'rejects invalid entry' do
+      allow(@difficulty).to receive(:user_input).and_return("k")
+      allow(@difficulty).to receive(:puts).and_return(nil)
+      allow(@difficulty).to receive(:non_valid).and_return(nil)
+      expect(@difficulty.difficulty(@msg)).to eql(nil)
+    end
  
   it 'rejects invalid entry' do
     allow(@difficulty).to receive(:user_input).and_return("k")

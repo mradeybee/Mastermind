@@ -68,6 +68,13 @@ describe Mastermind::Player do
     expect(@player.player_entry(0,["r","r","r","r"])).to be nil
   end
 
+   it 'detects invalid inputs and returns to ask for input' do
+    allow(@player).to receive(:user_input).and_return("rrwr")
+    allow(@player).to receive(:puts).and_return(nil)
+    allow(@player).to receive(:player_entry).and_return(nil)
+    expect(@player.invalid(0,["r","r","r","r"])).to be nil
+  end
+
   describe "#hint" do
     it 'gets hint' do
       allow(@player).to receive(:puts).and_return (nil)
