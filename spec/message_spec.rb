@@ -44,7 +44,7 @@
     expect(@message.welcome_msg).to eql("Welcome to Mastermind")
   end
   it 'displays play message' do
-    expect(@message.play_msg).to eql("Press (p) to play, (i) to read the (i)nstructions, (l) to view leaderboard  or (q) to quit?")
+    expect(@message.play_msg).to eql("Press (p) to play, (i) to read the instructions, (l) to view leaderboard  or (q) to quit?")
   end
    
    it 'displays beginer message' do

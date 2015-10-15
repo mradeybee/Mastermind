@@ -43,7 +43,7 @@ module Mastermind
       end
 
       def play_msg
-        "Press (p) to play, (i) to read the (i)nstructions, (l) to view leaderboard  or (q) to quit?"
+        "Press (p) to play, (i) to read the instructions, (l) to view leaderboard  or (q) to quit?"
       end
         
       def beginer_msg 

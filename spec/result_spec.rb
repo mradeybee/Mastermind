@@ -3,7 +3,7 @@ describe Mastermind::Result do
   before :each do
     @result = Mastermind::Result.new("string")
   end
- 
+
      it 'compares the lines of code' do
       allow(@result).to receive(:rounds).and_return(nil)
       allow(@result).to receive(:seconds).and_return(nil)
