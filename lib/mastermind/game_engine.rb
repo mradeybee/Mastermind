@@ -108,8 +108,8 @@ module Mastermind
       if @counter >= 12
       puts "#{@msg.game_over_msg(@computer_code, @final_time)}"
       @counter = 0
-      ask
       end
+      ask
     end
 
 

@@ -61,11 +61,11 @@ describe Mastermind::Game_Engine do
 
    describe "#try_again" do
     it 'tells player to try again' do
-      allow(@game).to receive(:final_time).and_return(nil)
-      allow(@game).to receive(:counter).and_return(12)
-      allow(@game).to receive(:puts).and_return("done")
-      allow(@game).to receive(:ask).and_return(nil)
-      expect(@game.try_again(0,2)).to be nil
+      allow(@game).to receive(:final_time).and_return(20)
+      allow(@game).to receive(:counter).and_return(15)
+      allow(@game).to receive(:puts).and_return("nil")
+      allow(@game).to receive(:ask).and_return("tried")
+      expect(@game.try_again(2,2)).to eql("tried")
     end
    end
 
