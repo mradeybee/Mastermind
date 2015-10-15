@@ -4,7 +4,9 @@ Lets a see how good you are at guessing. You are required to guess or figure out
 
 You have twelve rounds to figure out the computer's mind. If you do not guess right in twelve rounds, you loose. ): You can use 'h' to get hints. This is limited by your difficulty level.
 Enjoy! :)
-<img src="https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github" alt="Coverage Status" />
+
+[![Coverage Status](https://coveralls.io/repos/andela-aadepoju/Mastermind/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-aadepoju/Mastermind?branch=master)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -34,7 +36,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mastermind. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/andela-aadepoju/mastermind. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
