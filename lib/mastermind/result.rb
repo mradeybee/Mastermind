@@ -1,6 +1,6 @@
 module Mastermind
   class Result
-    attr_reader :line
+    attr_accessor :line
     def initialize(line)
       @line = line
     end
