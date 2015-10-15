@@ -7,6 +7,7 @@ describe Mastermind::Game_Engine do
   before :each do
     @game = Mastermind::Game_Engine.new
     @player = Mastermind::Player.new
+    @count = Mastermind::Game_Engine.new.counter
     allow_message_expectations_on_nil
   end
   
@@ -39,9 +40,9 @@ describe Mastermind::Game_Engine do
    describe "#analysis" do
     it 'analyses the game' do
       allow(@game).to receive(:puts).and_return(nil)
-      allow(@game).to receive(:counter).and_return(12)
-      allow(@game).to receive(:try_again).and_return(nil)
-      expect(@game.analysis(["r", "g", "b", "y"], 4, 0)).to be nil 
+      @game.instance_variable_set("@counter", 13)
+      allow(@game).to receive(:try_again).and_return("done")
+      expect(@game.analysis(["r", "g", "b", "y"], 2, 0)).to eql("done")
     end
    end 
 
@@ -62,7 +63,6 @@ describe Mastermind::Game_Engine do
    describe "#try_again" do
     it 'tells player to try again' do
       allow(@game).to receive(:final_time).and_return(20)
-      allow(@game).to receive(:counter).and_return(13)
       allow(@game).to receive(:puts).and_return("nil")
       allow(@game).to receive(:counter).and_return(0)
       allow(@game).to receive(:ask).and_return("tried")

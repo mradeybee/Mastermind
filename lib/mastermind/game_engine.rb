@@ -7,6 +7,8 @@ module Mastermind
     include Difficulty
     attr_reader :status, :player, :counter, :final_time,
     :start_time ,:computer_code, :leaderboard
+
+    attr_writer :counter
    
     def initialize
       @player = Player.new    
@@ -91,9 +93,7 @@ module Mastermind
     def analysis(player_input, exact, partial)
       puts "#{@msg.rounds(player_input, @counter)}"
       puts "#{@msg.result(exact,partial)}"
-      if @counter >= 12
-        try_again(exact, partial)    
-      end 
+      try_again(exact, partial) if @counter >= 12
     end
 
 
