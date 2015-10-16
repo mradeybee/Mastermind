@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Mastermind is a game where you will guess the the colours the computer has in mind.}
   spec.description   = %q{Mastermind is a game where you will guess the the colours the computer has in mind. You will be told if you guess correctly or not. You will have too guess in the same order as the computer to win. Enjoy! :)}
-  spec.homepage      = "http://www.mradeybee.com/mastermind"
+  spec.homepage      = "https://github.com/andela-aadepoju/Mastermind"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
