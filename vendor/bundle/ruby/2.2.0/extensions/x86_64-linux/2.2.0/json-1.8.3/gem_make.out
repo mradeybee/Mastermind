@@ -1,9 +1,0 @@
-/usr/bin/ruby2.2 -r ./siteconf20151005-19751-1dvdmcs.rb extconf.rb
-creating Makefile
-
-make "DESTDIR=" clean
-
-make "DESTDIR="
-make: Nothing to be done for `all'.
-
-make "DESTDIR=" install

@@ -1,30 +1,48 @@
-require "colorize"
-require_relative 'input'
-
 module Mastermind
   module Difficulty
-   
-    def difficulty(msg)
-      puts "#{msg.difficulty_select}"
+    include Input
+
+    def difficulty(message)
+      puts message.difficulty_select.to_s
       input = user_input
-      case 
-        when input == "b"
-          puts "#{msg.beginer_msg}"
-          return col = 0
-        when input == "m"
-          puts "#{msg.intermidiate_msg}"
-          return col = 2
-        when input == "a"
-          puts "#{msg.advance_msg}"
-          return col = 4
-        else  
-          puts "#{msg.invalid_entry_msg}"
-          non_valid(msg)
+      case input
+      when 'b'
+        beginer(message)
+      when 'm'
+        intermidiate(message)
+      when 'a'
+        advance(message)
+      when 'q'
+        quit(message)
+      else
+        puts message.invalid_entry_msg.to_s
+        non_valid(message)
       end
     end
 
-    def non_valid(msg)
-      difficulty(msg)
+    def beginer(message)
+      puts message.beginer_msg.to_s
+      4
+    end
+
+    def intermidiate(message)
+      puts message.intermidiate_msg.to_s
+      6
+    end
+
+    def advance(message)
+      puts message.advance_msg.to_s
+      8
+    end
+
+    def quit(message)
+      puts message.quit_msg.to_s
+      puts message.bye.to_s
+      exit
+    end
+
+    def non_valid(message)
+      difficulty(message)
     end
   end
 end

@@ -1,70 +1,61 @@
-require_relative 'input'
-
 module Mastermind
+  class Player
+    include Input
+    attr_writer :h_num
+    attr_reader :input
 
- class Player
-
-  include Input
-  attr_writer :h_num
-  attr_reader :input
-
-  def initialize
-    @h_num = 0
-    @msg = Message.new
-    @code = ["r","g","b","y","c","m"]
-  end
-  
-
-  def is_valid?(incode)
-     arr = []
-    for i in incode
-      arr << i if @code.include?(i)
+    def initialize
+      @h_num = 0
+      @msg = Message.new
+      @code = %w[r g b y c m]
     end
-    arr
-    true if arr == incode 
-  end
 
- 
-  def player_entry(col, computer_code)
-    input = user_input
-    case
-    when input == "q"
-      puts "#{@msg.quit_msg}"
-      exit
-    when input == "h"
-      if  @h_num < col + 1
-        @h_num += 1
-        hint(col, computer_code)
-      else 
-        puts "#{@msg.hint_exceeded_msg}"
-        invalid(col, computer_code)
+    def is_valid?(incode)
+      arr = []
+      for i in incode
+        arr << i if @code.include?(i)
       end
-    when input.length > 4 + col
-      puts "#{@msg.too_long}"
-      invalid(col, computer_code)
-    when input.length < 4 + col
-      puts "#{@msg.too_short}"
-      invalid(col, computer_code)
-    when is_valid?(input.split(//))
-      input = input.split(//)
+      arr
+      true if arr == incode
+    end
+
+    def player_entry(difficulty, computer_code)
+      input = user_input
+
+      if input == 'q'
+        puts @msg.quit_msg.to_s
+        exit
+      elsif input == 'h'
+        if @h_num < difficulty + 1
+          @h_num += 1
+          hint(difficulty, computer_code)
+        else
+          puts @msg.hint_exceeded_msg.to_s
+          invalid(difficulty, computer_code)
+        end
+      elsif input.length > difficulty
+        puts @msg.too_long.to_s
+        invalid(difficulty, computer_code)
+      elsif input.length < difficulty
+        puts @msg.too_short.to_s
+        invalid(difficulty, computer_code)
+      elsif is_valid?(input.split(//))
+        input = input.split(//)
       else
-      puts "#{@msg.invalid_entry_msg}"
-      invalid(col,computer_code)
-    end   
-  end 
+        puts @msg.invalid_entry_msg.to_s
+        invalid(difficulty, computer_code)
+      end
+    end
 
-  def invalid(col,computer_code)
-    player_entry(col,computer_code)
+    def invalid(difficulty, computer_code)
+      player_entry(difficulty, computer_code)
+    end
+
+    def hint(difficulty, computer_code)
+      h = rand(1..4)
+      puts @msg.hint_msg(h, computer_code).to_s
+      h = rand(1..4)
+      player_entry(difficulty, computer_code)
+    end
   end
-
-  
-
-  def hint(col, computer_code)
-    h = rand(1..4)
-    puts "#{@msg.hint_msg(h, computer_code)}"
-    h = rand(1..4)
-    player_entry(col,computer_code)
-  end 
-
- end 
-end 
+end

@@ -1,20 +1,14 @@
-require "colorize"
 module Mastermind
-  
-  class Code_generator
-    attr_reader :computer
-    
-    def computer_choice(col = nil)
-      @computer = []
-      code = ["r","g","b","y","c","m"]
-      col_val = 4 + col
-      limit = col_val > code.size ? code.size : col_val
-      until @computer.length == col_val
-        i = Random.rand (0...limit)
-        @computer << code[i];  @computer.uniq
+  class CodeGenerator
+    def computer_choice(difficulty)
+      choices = []
+      code = %w[r g b y c m]
+      limit = difficulty > code.size ? code.size : difficulty
+      until choices.length == difficulty
+        index = Random.rand(0...limit)
+        choices << code[index]
       end
-      @computer
+      choices
     end
-  
   end
 end
