@@ -10,7 +10,7 @@ describe Mastermind::GameEngine do
 
   describe '#exact_match' do
     it 'returns exact matches' do
-      expect(game.exact_match(%w[r r r r], %w[r r r r])).to eql([[0, 0, 0, 0], 4])
+      expect(game.exact_match(%w[r r r r], %w[r r r r])).to eql([['*', '*', '*', '*'], 4])
     end
   end
 
@@ -28,7 +28,7 @@ describe Mastermind::GameEngine do
       allow(game).to receive(:partial_match).and_return(0)
       allow(game).to receive(:analysis).and_return(nil)
       allow(game).to receive(:winner).and_return('win')
-      allow(game).to receive(:difficulty).and_return(0)
+      allow(game).to receive(:difficulty).and_return(4)
       expect(game.game).to eql('win')
     end
   end

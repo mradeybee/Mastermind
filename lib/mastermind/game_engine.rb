@@ -99,7 +99,7 @@ module Mastermind
 
     def winner
       @final_time = (Time.now - @start_time).to_i
-      puts @msg.win_msg(@final_time, @counter, @computer_code.join('')).to_s
+      puts @msg.win_msg(@final_time, @counter, @computer_code.try { |code| code.join('') }).to_s
       name_and_reset
     end
 
@@ -112,7 +112,7 @@ module Mastermind
 
     def try_again(_exact, _partial)
       @final_time = (Time.now - @start_time).to_i
-      puts @msg.game_over_msg(@computer_code.join(''), @final_time).to_s
+      puts @msg.game_over_msg(@computer_code.try { |code| code.join('') }, @final_time).to_s
       @counter = 0
       ask
     end

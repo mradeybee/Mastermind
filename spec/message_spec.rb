@@ -26,7 +26,7 @@ describe Mastermind::Message do
   end
 
   it 'displays number of rouds played' do
-    expect(message.rounds('rrrr', 2)).to eql 'You played rrrr. Round 2 0f 12'
+    expect(message.rounds(2)).to eql '********** Round 2 **********'
   end
 
   it 'displays Computer\'s choice' do
